@@ -18,13 +18,24 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
     max-width: 100vw;
+    min-height: 200vh;
     overflow-x: hidden;
     font-size: ${({ theme }) => theme.typography.fontSize.body};
     font-family: ${({ theme }) => theme.typography.fontFamily.body};
     line-height: ${({ theme }) => theme.typography.lineHeight};
-    color: ${({ theme }) => theme.palette.fontColor.body};
+    color: ${({ theme }) => theme.palette.fontColor.dark};
     font-weight: 400;
+    background-color: ${({ theme }) => theme.palette.background.default};
+
+    .container-padding {
+      padding-left: 8vw;
+      padding-right: 8vw;
+
+      @media screen and (max-width: 800px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
   }
 `;

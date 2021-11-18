@@ -1,1 +1,1 @@
-export * from './GlobalStyles';
+export * from './globalStyles';
