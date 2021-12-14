@@ -12,6 +12,7 @@ export const Wrapper = styled.nav<{ shrink: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: ${({ theme }) => theme.typography.fontFamily.heading};
 
   .menu-btn {
     color: #fff;
@@ -54,6 +55,10 @@ export const SearchBar = styled.div`
     cursor: pointer;
     padding: 0.5rem;
     color: ${({ theme }) => theme.palette.fontColor.dark};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid lightgray;
 
     &:hover {
       color: ${({ theme }) => theme.palette.primary.main};
@@ -72,7 +77,7 @@ export const NavMenu = styled.ul<{ active: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
 
   .cart-btn {
     padding: 0.2rem;
@@ -87,6 +92,7 @@ export const NavMenu = styled.ul<{ active: boolean }>`
 
   li {
     color: #fff;
+    font-size: ${({ theme }) => theme.typography.fontSize.body2};
 
     &:hover {
       transition: color 0.3s ease-out;

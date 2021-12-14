@@ -41,5 +41,9 @@ export const GlobalStyles = createGlobalStyle`
     button {
       cursor: pointer;
     }
+
+    input {
+      font-family: ${({ theme }) => theme.typography.fontFamily.body};
+    }
   }
 `;
