@@ -2,9 +2,22 @@ import { ReactElement, useEffect, useState } from 'react';
 import { Wrapper, SearchBar, NavMenu } from './navbar.styles';
 import { detectScrollDown } from '../../utils';
 import Logo from '../logo/logo';
+import { FaSearch } from 'react-icons/fa';
+import { FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Navbar(): ReactElement {
   const [shrink, setShrink] = useState<boolean>(false);
+  const [activeMenu, setActiveMenu] = useState<boolean>(false);
+
+  function toggleMenu(val?: boolean): void {
+    if (val) {
+      setActiveMenu(val);
+      return;
+    }
+
+    setActiveMenu((prev) => !prev);
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -15,12 +28,38 @@ function Navbar(): ReactElement {
   return (
     <Wrapper className='container-padding' shrink={shrink}>
       <Logo secondary={!shrink} />
-      <SearchBar></SearchBar>
-      <NavMenu>
+      <NavMenu active={activeMenu}>
         <li>
-          <button></button>
+          <SearchBar>
+            <input
+              className='search-input'
+              type='text'
+              placeholder={'search...'}
+              maxLength={100}
+            />
+            <button className='search-button'>
+              <FaSearch />
+            </button>
+          </SearchBar>
+        </li>
+        <li>
+          <Link to='/'>Categories</Link>
+        </li>
+        <li>
+          <Link to='/'>Offers</Link>
+        </li>
+        <li>
+          <Link to='/'>Login</Link>
+        </li>
+        <li>
+          <button className='cart-btn'>
+            <FaShoppingCart />
+          </button>
         </li>
       </NavMenu>
+      <button className='menu-btn' onClick={() => toggleMenu()}>
+        {!activeMenu ? <FaBars /> : <FaTimes />}
+      </button>
     </Wrapper>
   );
 }

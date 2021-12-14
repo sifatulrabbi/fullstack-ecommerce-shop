@@ -37,5 +37,9 @@ export const GlobalStyles = createGlobalStyle`
         padding-right: 2rem;
       }
     }
+
+    button {
+      cursor: pointer;
+    }
   }
 `;

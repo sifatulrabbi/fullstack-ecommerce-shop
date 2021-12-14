@@ -28,6 +28,7 @@ export const theme = {
             button: '14px',
         },
     },
+    breakpoint: '800px',
     spacing: function (multiplier: number): string {
         return `${multiplier * 8}`;
     },
