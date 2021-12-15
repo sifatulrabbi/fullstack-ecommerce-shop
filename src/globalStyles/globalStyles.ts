@@ -43,10 +43,19 @@ export const GlobalStyles = createGlobalStyle`
 
     button {
       cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
     }
 
     input {
       font-family: ${({ theme }) => theme.typography.fontFamily.body};
+    }
+
+    .flex-center {
+      display: flex;
+      align-items:center;
+      justify-content:center;
     }
   }
 `;

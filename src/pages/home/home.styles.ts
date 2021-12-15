@@ -12,6 +12,7 @@ export const HomeContainer = styled.section`
 
 export const Header = styled.header`
   padding: 2rem;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
