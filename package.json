@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=14.*"
+    "node": "16.*"
   },
   "dependencies": {
     "@babel/core": "^7.16.5",
@@ -53,6 +53,5 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0"
-  },
-  "proxy": "http://localhost:5000/api/v1"
+  }
 }

@@ -1,12 +1,12 @@
 import { ReactElement, useEffect, useState } from 'react';
-import { Wrapper, SearchBar, NavMenu } from './navbar.styles';
+import { Wrapper, SearchBar, NavMenu, Button } from './navbar.styles';
 import { detectScrollDown } from '../../utils';
 import Logo from '../logo/logo';
 import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-function Navbar(): ReactElement {
+export function Navbar(): ReactElement {
   const [shrink, setShrink] = useState<boolean>(false);
   const [activeMenu, setActiveMenu] = useState<boolean>(false);
 
@@ -49,12 +49,14 @@ function Navbar(): ReactElement {
           <Link to='/'>Offers</Link>
         </li>
         <li>
-          <Link to='/'>Login</Link>
-        </li>
-        <li>
           <button className='cart-btn'>
             <FaShoppingCart />
           </button>
+        </li>
+        <li>
+          <Button>
+            <Link to='/'>Login</Link>
+          </Button>
         </li>
       </NavMenu>
       <button className='menu-btn' onClick={() => toggleMenu()}>
@@ -63,5 +65,3 @@ function Navbar(): ReactElement {
     </Wrapper>
   );
 }
-
-export default Navbar;
