@@ -17,7 +17,7 @@ export const ProductContainer = styled.div`
 
   .name {
     width: 100%;
-    font-size: ${({ theme }) => theme.typography.fontSize.h3};
+    font-size: ${({ theme }) => theme.typography.fontSize.h4};
     font-family: ${({ theme }) => theme.typography.fontFamily.heading};
     font-weight: 700;
   }

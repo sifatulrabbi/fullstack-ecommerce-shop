@@ -7,7 +7,7 @@ export const Wrapper = styled.nav<{ shrink: boolean }>`
   top: 0;
   right: 0;
   left: 0;
-  height: ${({ shrink }) => (shrink ? '80px' : '120px')};
+  height: ${({ shrink }) => (shrink ? '60px' : '80px')};
   background-color: ${({ theme }) => theme.palette.primary.dark};
   transition: height 0.3s ease;
   box-shadow: ${({ theme }) => theme.shadows[1]};

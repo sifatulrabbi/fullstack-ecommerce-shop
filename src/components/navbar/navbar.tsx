@@ -1,6 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react';
 import { Wrapper, SearchBar, NavMenu, Button } from './navbar.styles';
-import { detectScrollDown } from '../../utils';
 import Logo from '../logo/logo';
 import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
@@ -21,7 +20,7 @@ export function Navbar(): ReactElement {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      setShrink(detectScrollDown(document.documentElement.scrollTop));
+      setShrink(document.documentElement.scrollTop > 100);
     });
   }, []);
 
