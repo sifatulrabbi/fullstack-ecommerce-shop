@@ -8,8 +8,8 @@ export const theme = {
     },
     borderRadius: '6px',
     shadows: [
-        'rgba(0, 0, 0, 0.2) 0px 5px 12px 0px',
-        'rgba(0, 0, 0, 0.2) 0px 5px 22px 0px',
+        'rgba(0, 0, 0, 0.2) 0px 2px 4px 0px',
+        'rgba(0, 0, 0, 0.2) 0px 5px 16px 0px',
         'rgba(0, 0, 0, 0.2) 0px 5px 25px 2px',
     ],
     typography: {
@@ -17,10 +17,10 @@ export const theme = {
         letterSpacing: { big: '5px', normal: '0.4px' },
         fontFamily: { body: `'Poppins', sans-serif`, heading: `'Oswald', sans-serif` },
         fontSize: {
-            h1: '4rem',
-            h2: '3rem',
-            h3: '2rem',
-            h4: '1.6rem',
+            h1: 'clamp(3rem, 4vw, 5rem)',
+            h2: '2.4rem',
+            h3: '1.8rem',
+            h4: '1.3rem',
             caption: '.7rem',
             body: '16px',
             body2: '.9rem',

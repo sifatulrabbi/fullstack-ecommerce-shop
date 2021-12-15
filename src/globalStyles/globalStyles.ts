@@ -6,6 +6,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   *, *::after, *::before {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: inherit;
@@ -19,14 +20,16 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     max-width: 100vw;
-    min-height: 200vh;
+    min-height: 100vh;
     overflow-x: hidden;
+    font-weight: 400;
+    line-height: 1.5;
+
     font-size: ${({ theme }) => theme.typography.fontSize.body};
     font-family: ${({ theme }) => theme.typography.fontFamily.body};
     line-height: ${({ theme }) => theme.typography.lineHeight};
-    color: ${({ theme }) => theme.palette.fontColor.dark};
-    font-weight: 400;
     background-color: ${({ theme }) => theme.palette.background.default};
+    color: ${({ theme }) => theme.palette.fontColor.dark};
 
     .container-padding {
       padding-left: 8vw;

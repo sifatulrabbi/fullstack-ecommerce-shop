@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { buttonBase } from '../../globalStyles';
 
 export const Wrapper = styled.nav<{ shrink: boolean }>`
+  z-index: 1500;
   position: fixed;
   top: 0;
   right: 0;
@@ -8,7 +10,7 @@ export const Wrapper = styled.nav<{ shrink: boolean }>`
   height: ${({ shrink }) => (shrink ? '80px' : '120px')};
   background-color: ${({ theme }) => theme.palette.primary.dark};
   transition: height 0.3s ease;
-  box-shadow: ${({ theme }) => theme.shadows[0]};
+  box-shadow: ${({ theme }) => theme.shadows[1]};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,3 +109,5 @@ export const NavMenu = styled.ul<{ active: boolean }>`
     padding: 0;
   }
 `;
+
+export const Button = styled(buttonBase)``;
