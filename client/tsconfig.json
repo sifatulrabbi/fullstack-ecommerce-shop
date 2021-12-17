@@ -8,7 +8,8 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "allowJs": true
+    "allowJs": true,
+    "isolatedModules": true
   },
-  "include": ["./src"]
+  "include": ["./src", "./src/**/*.d.ts"]
 }

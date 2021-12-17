@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { theme } from '../theme';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -25,11 +26,11 @@ export const GlobalStyles = createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
 
-    font-size: ${({ theme }) => theme.typography.fontSize.body};
-    font-family: ${({ theme }) => theme.typography.fontFamily.body};
-    line-height: ${({ theme }) => theme.typography.lineHeight};
-    background-color: ${({ theme }) => theme.palette.background.default};
-    color: ${({ theme }) => theme.palette.fontColor.dark};
+    font-size: ${theme.typography.fontSize.body};
+    font-family: ${theme.typography.fontFamily.body};
+    line-height: ${theme.typography.lineHeight};
+    background-color: ${theme.palette.background.default};
+    color: ${theme.palette.fontColor.dark};
 
     .container-padding {
       padding-left: 8vw;
@@ -49,7 +50,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     input {
-      font-family: ${({ theme }) => theme.typography.fontFamily.body};
+      font-family: ${theme.typography.fontFamily.body};
     }
 
     .flex-center {

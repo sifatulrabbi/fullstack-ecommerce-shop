@@ -2,13 +2,13 @@ import { theme } from '../theme';
 
 export declare type ITheme = typeof theme;
 
-interface IUser {
+export interface IUser {
   _id: string;
   name: string;
   email: string;
 }
 
-interface IShop {
+export interface IShop {
   _id: string;
   name: string;
   email: string;
@@ -17,7 +17,7 @@ interface IShop {
   cats: string[];
 }
 
-interface IProduct {
+export interface IProduct {
   _id: string;
   name: string;
   price: number;
