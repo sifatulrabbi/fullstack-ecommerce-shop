@@ -18,7 +18,7 @@ export function PurchaseModal({ title, text, active, closeFnc }: Props): React.R
   }
 
   function decreaseAmount(): void {
-    if (amount == 1) return;
+    if (amount === 1) return;
     setAmount((prev) => prev - 1);
   }
 
