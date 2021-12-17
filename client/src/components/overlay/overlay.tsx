@@ -19,7 +19,5 @@ const OverlayContainer = styled.div<{ active: boolean }>`
 `;
 
 export function Overlay({ active, closeFnc }: Props): React.ReactElement {
-  return (
-    <OverlayContainer active={active} onClick={closeFnc}></OverlayContainer>
-  );
+  return <OverlayContainer active={active} onClick={closeFnc}></OverlayContainer>;
 }

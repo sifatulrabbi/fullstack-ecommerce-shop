@@ -18,12 +18,7 @@ export function Product({ name, price, desc }: Props): React.ReactElement {
 
   return (
     <>
-      <PurchaseModal
-        title={name}
-        text={desc}
-        active={showModal}
-        closeFnc={togglePurchaseModal}
-      />
+      <PurchaseModal title={name} text={desc} active={showModal} closeFnc={togglePurchaseModal} />
       <ProductContainer>
         <h4 className='name padding'>{name}</h4>
         <img className='product-img' src={product_1} alt='product' />

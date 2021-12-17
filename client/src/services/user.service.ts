@@ -5,11 +5,7 @@ class UserService {
 
   async logout(): Promise<void> {}
 
-  async update(
-    username: string,
-    password: string,
-    data: object
-  ): Promise<void> {}
+  async update(username: string, password: string, data: object): Promise<void> {}
 
   async delete(username: string, password: string): Promise<void> {}
 }

@@ -30,12 +30,7 @@ export function Navbar(): ReactElement {
       <NavMenu active={activeMenu}>
         <li>
           <SearchBar>
-            <input
-              className='search-input'
-              type='text'
-              placeholder={'search...'}
-              maxLength={100}
-            />
+            <input className='search-input' type='text' placeholder={'search...'} maxLength={100} />
             <button className='search-button'>
               <FaSearch />
             </button>

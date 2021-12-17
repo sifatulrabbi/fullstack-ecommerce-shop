@@ -10,12 +10,7 @@ interface Props {
   closeFnc: () => void;
 }
 
-export function PurchaseModal({
-  title,
-  text,
-  active,
-  closeFnc,
-}: Props): React.ReactElement {
+export function PurchaseModal({ title, text, active, closeFnc }: Props): React.ReactElement {
   const [amount, setAmount] = React.useState<number>(1);
 
   function increaseAmount(): void {
