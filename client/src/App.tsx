@@ -5,6 +5,7 @@ import { theme } from './theme';
 import { GlobalStyles } from './globalStyles';
 import { Home } from './pages';
 import { Navbar } from './components';
+import { ProductsProvider } from './hooks';
 
 export default function App(): ReactElement {
   return (
@@ -12,12 +13,14 @@ export default function App(): ReactElement {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/users' element={<h1>hello world</h1>} />
-          <Route path='/shops' element={<h1>hello world</h1>} />
-          <Route path='/products' element={<h1>hello world</h1>} />
-        </Routes>
+        <ProductsProvider>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/users' element={<h1>hello world</h1>} />
+            <Route path='/shops' element={<h1>hello world</h1>} />
+            <Route path='/products' element={<h1>hello world</h1>} />
+          </Routes>
+        </ProductsProvider>
       </ThemeProvider>
     </Router>
   );

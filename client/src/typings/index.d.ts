@@ -2,35 +2,28 @@ import { theme } from '../theme';
 
 export declare type ITheme = typeof theme;
 
-export declare interface IUser {
-  _id?: string;
+interface IUser {
+  _id: string;
   name: string;
-  fullName: string;
   email: string;
-  password: string;
-  photoURL?: string;
-  shopId?: string;
-  shopName?: string;
 }
 
-export declare interface IShop {
-  _id?: string;
+interface IShop {
+  _id: string;
   name: string;
-  owner: string;
-  ownerId: string;
-  categories?: string[];
+  email: string;
+  owner_id: string;
   desc?: string;
-  products?: string[];
-  coverURL?: string;
+  cats: string[];
 }
 
-export declare interface IProduct {
-  _id?: string;
+interface IProduct {
+  _id: string;
   name: string;
-  desc: string;
   price: number;
-  photoURL?: string;
-  shopId: string;
-  category: string;
-  tags: string[];
+  desc: string;
+  cats: string[];
+  shop_id: string;
+  discount?: number;
+  disc_price?: number;
 }

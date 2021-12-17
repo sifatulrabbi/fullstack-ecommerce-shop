@@ -1,8 +1,12 @@
 import { ReactElement } from 'react';
 import { HomeContainer, Header, Button } from './home.styles';
 import { Products } from '../../components';
+import { IProduct } from '../../typings';
+import { useProducts } from '../../hooks';
 
 export default function Home(): ReactElement {
+  const { products } = useProducts();
+
   return (
     <HomeContainer>
       <Header>
@@ -10,7 +14,7 @@ export default function Home(): ReactElement {
         <Button>Explore</Button>
       </Header>
       <div className='products-container'>
-        <Products />
+        <Products products={products} />
       </div>
     </HomeContainer>
   );

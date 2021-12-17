@@ -1,17 +1,17 @@
 import React from 'react';
 import { ProductsContainer } from './products.styles';
-import { mockData } from './mock-data';
 import { Product } from '../product/product';
+import { IProduct } from '../../typings';
 
 interface Props {
-  productsData?: [];
+  products: IProduct[];
 }
 
-export function Products({ productsData }: Props): React.ReactElement {
+export function Products({ products }: Props): React.ReactElement {
   return (
     <ProductsContainer>
-      {mockData.map((data) => (
-        <Product name={data.name} desc={data.desc} price={data.price} />
+      {products.map((product) => (
+        <Product name={product.name} desc={product.desc} price={product.price} />
       ))}
     </ProductsContainer>
   );
