@@ -30,7 +30,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${theme.typography.fontFamily.body};
     line-height: ${theme.typography.lineHeight};
     background-color: ${theme.palette.background.default};
-    color: ${theme.palette.fontColor.dark};
+    color: ${theme.palette.fontColor.primary};
 
     .container-padding {
       padding-left: 8vw;

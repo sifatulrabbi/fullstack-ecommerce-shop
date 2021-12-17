@@ -8,7 +8,7 @@ export const Wrapper = styled.nav<{ shrink: boolean }>`
   right: 0;
   left: 0;
   height: ${({ shrink }) => (shrink ? '60px' : '80px')};
-  background-color: ${({ theme }) => theme.palette.primary.dark};
+  background-color: ${({ theme }) => theme.palette.background.light};
   transition: height 0.3s ease;
   box-shadow: ${({ theme }) => theme.shadows[1]};
   display: flex;
@@ -56,7 +56,7 @@ export const SearchBar = styled.div`
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    color: ${({ theme }) => theme.palette.fontColor.dark};
+    color: ${({ theme }) => theme.palette.primary.dark};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +74,7 @@ export const NavMenu = styled.ul<{ active: boolean }>`
   top: 100%;
   left: 0;
   right: 0;
-  background-color: ${({ theme }) => theme.palette.primary.dark};
+  background-color: ${({ theme }) => theme.palette.background.light};
   padding: 1rem;
   flex-direction: column;
   justify-content: center;

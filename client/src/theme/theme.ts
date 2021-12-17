@@ -3,8 +3,8 @@ export const theme = {
         primary: { main: '#1C77FF', dark: '#1C2634' },
         secondary: { main: '', dark: '' },
         common: { white: '#fff', black: '#222' },
-        fontColor: { light: '#E0E0E0', dark: '#555' },
-        background: { default: '#E0E0E0', light: '#fff' },
+        fontColor: { primary: '#f0f0f0', secondary: '#bbb', darkSecondary: '#666' },
+        background: { default: '#181818', light: '#1e2022' },
     },
     borderRadius: '6px',
     shadows: [
@@ -18,7 +18,7 @@ export const theme = {
         fontFamily: { body: `'Poppins', sans-serif`, heading: `'Oswald', sans-serif` },
         fontSize: {
             h1: 'clamp(3rem, 4vw, 5rem)',
-            h2: '2.4rem',
+            h2: 'clamp(2rem, 4vw, 3.5rem)',
             h3: '1.8rem',
             h4: '1.3rem',
             caption: '.7rem',
@@ -28,7 +28,7 @@ export const theme = {
             button: '14px',
         },
     },
-    breakpoint: '800px',
+    breakpoint: '850px',
     spacing: function (multiplier: number): string {
         return `${multiplier * 8}`;
     },

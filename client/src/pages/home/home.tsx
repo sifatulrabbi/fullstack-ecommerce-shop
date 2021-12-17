@@ -3,7 +3,7 @@ import { HomeContainer, Header, Button } from './home.styles';
 import { Products } from '../../components';
 import { useProducts } from '../../hooks';
 
-export default function Home(): ReactElement {
+export function Home(): ReactElement {
   const { products } = useProducts();
 
   return (

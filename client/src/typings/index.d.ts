@@ -24,6 +24,7 @@ export interface IProduct {
   desc: string;
   cats: string[];
   shop_id: string;
+  img?: string;
   discount?: number;
   disc_price?: number;
 }
