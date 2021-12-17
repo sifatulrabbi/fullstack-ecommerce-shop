@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 import { HomeContainer, Header, Button } from './home.styles';
 import { Products } from '../../components';
-import { IProduct } from '../../typings';
 import { useProducts } from '../../hooks';
 
 export default function Home(): ReactElement {
