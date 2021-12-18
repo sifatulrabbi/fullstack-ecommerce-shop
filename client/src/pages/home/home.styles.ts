@@ -12,7 +12,7 @@ export const HomeContainer = styled.section`
 
 export const Header = styled.header`
   padding: 2rem;
-  padding-top: 80px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,6 @@ export const Header = styled.header`
   background-blend-mode: overlay;
   background-position: center;
   background-size: cover;
-  min-height: 90vh;
   position: relative;
 
   .page-title {

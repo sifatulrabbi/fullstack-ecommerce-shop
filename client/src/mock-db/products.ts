@@ -7,6 +7,9 @@ export const products: IProduct[] = [
     name: 'Ryzen 9 9700X',
     price: 1500,
     img: ryzen_9,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: 'This is Ryzen 9 9700X 96 core super powered processor to take your computing experience to the next level. n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.',
     cats: ['computers', 'accessories'],
     shop_id: 'sifatuls-shop',
@@ -18,6 +21,9 @@ export const products: IProduct[] = [
     name: 'Mac Book pro 2021',
     price: 2200,
     img: product_1,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: "This is Apple's Mac Book Pro 2021 with m1 chip. n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
     cats: ['computers', 'accessories'],
     shop_id: 'sifatuls-shop',
@@ -27,6 +33,9 @@ export const products: IProduct[] = [
     name: "Hello Novel from 90's",
     price: 200,
     img: novel,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: "This is Hello Novel an story of two souls. This book gives you a peek of 90's relationships. n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
     cats: ['book', 'novel'],
     shop_id: 'siams-shop',
@@ -38,6 +47,9 @@ export const products: IProduct[] = [
     name: 'Special pasta sauce',
     price: 27.99,
     img: sauce,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: 'This a sauce that will turn your boring pasta into something wonderful and tasty. n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.',
     cats: ['foods', 'cooking'],
     shop_id: 'anols-shop',
@@ -47,6 +59,9 @@ export const products: IProduct[] = [
     name: 'Cotton Hoodie',
     price: 57.99,
     img: background_1,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: 'A cotton hoodie to make you look amazing also keep you warm in the winter. n publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.',
     cats: ['accessories', 'clothes'],
     shop_id: 'rabbis-shop',
@@ -56,6 +71,9 @@ export const products: IProduct[] = [
     name: 'J-Ames T-shirt',
     price: 37.99,
     img: t_shirt,
+    summary: `> 96 cores
+> 8.0 GHz speed
+> 192 threads (multi threading enabled)`,
     desc: 'Premium J-Ames T-Shirt. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.',
     cats: ['accessories', 'clothes'],
     shop_id: 'rabbis-shop',

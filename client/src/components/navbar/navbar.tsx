@@ -27,35 +27,42 @@ export function Navbar(): ReactElement {
   return (
     <Wrapper className='container-padding' shrink={shrink}>
       <Logo secondary={!shrink} />
-      <NavMenu active={activeMenu}>
-        <li>
-          <SearchBar>
-            <input className='search-input' type='text' placeholder={'search...'} maxLength={100} />
-            <button className='search-button'>
-              <FaSearch />
-            </button>
-          </SearchBar>
-        </li>
-        <li>
-          <Link to='/'>Categories</Link>
-        </li>
-        <li>
-          <Link to='/'>Offers</Link>
-        </li>
-        <li>
+      <div className='flex-center'>
+        <NavMenu active={activeMenu}>
+          <li>
+            <SearchBar>
+              <input
+                className='search-input'
+                type='text'
+                placeholder={'search...'}
+                maxLength={100}
+              />
+              <button className='search-button'>
+                <FaSearch />
+              </button>
+            </SearchBar>
+          </li>
+          <li>
+            <Link to='/'>Categories</Link>
+          </li>
+          <li>
+            <Link to='/'>Offers</Link>
+          </li>
+          <li>
+            <Button>
+              <Link to='/'>Login</Link>
+            </Button>
+          </li>
+        </NavMenu>
+        <button className='menu-btn' onClick={() => toggleMenu()}>
+          {!activeMenu ? <FaBars /> : <FaTimes />}
+        </button>
+        <Link to='/cart'>
           <button className='cart-btn'>
             <FaShoppingCart />
           </button>
-        </li>
-        <li>
-          <Button>
-            <Link to='/'>Login</Link>
-          </Button>
-        </li>
-      </NavMenu>
-      <button className='menu-btn' onClick={() => toggleMenu()}>
-        {!activeMenu ? <FaBars /> : <FaTimes />}
-      </button>
+        </Link>
+      </div>
     </Wrapper>
   );
 }

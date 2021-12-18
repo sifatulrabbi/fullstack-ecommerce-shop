@@ -27,6 +27,22 @@ export const Wrapper = styled.nav<{ shrink: boolean }>`
       display: none;
     }
   }
+
+  .cart-btn {
+    margin-left: 1rem;
+    padding: 0.2rem;
+    font-size: 1.8rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: ${({ theme }) => theme.palette.primary.main};
+    }
+  }
 `;
 
 export const SearchBar = styled.div`
@@ -80,17 +96,6 @@ export const NavMenu = styled.ul<{ active: boolean }>`
   justify-content: center;
   align-items: center;
   grid-gap: 1.5rem;
-
-  .cart-btn {
-    padding: 0.2rem;
-    font-size: 1.8rem;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   li {
     color: #fff;
