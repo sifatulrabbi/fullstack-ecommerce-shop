@@ -1,13 +1,16 @@
 import { ReactElement } from 'react';
 import { Wrapper } from './logo.styles';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   secondary?: boolean;
 }
 
 export default function Logo({ secondary }: Props): ReactElement {
+  const navigate = useNavigate();
+
   function handleClick(): void {
-    window.location.href = '/';
+    navigate('/');
   }
 
   return (

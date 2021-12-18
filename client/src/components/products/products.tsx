@@ -15,7 +15,7 @@ export function Products({ products }: Props): React.ReactElement {
           key={product._id}
           id={product._id}
           name={product.name}
-          desc={product.desc}
+          summary={product.summary}
           price={product.price}
           img={product.img}
         />

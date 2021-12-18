@@ -21,6 +21,7 @@ export interface IProduct {
   _id: string;
   name: string;
   price: number;
+  summary: string;
   desc: string;
   cats: string[];
   shop_id: string;

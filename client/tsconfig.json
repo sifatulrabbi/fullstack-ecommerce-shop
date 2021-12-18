@@ -11,5 +11,5 @@
     "allowJs": true,
     "isolatedModules": true
   },
-  "include": ["./src", "./src/**/*.d.ts"]
+  "include": ["./src"]
 }

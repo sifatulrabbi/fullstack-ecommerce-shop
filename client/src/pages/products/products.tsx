@@ -28,6 +28,8 @@ export function ProductsPage(): React.ReactElement {
         <div className='row'>
           <div>
             <h1 className='title'>{product.name}</h1>
+            <p className='desc'>{product.summary}</p>
+            <br />
             <p className='desc'>{product.desc}</p>
             <div className='wrapper'>
               <div className='price-wrapper'>

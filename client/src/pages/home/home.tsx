@@ -9,8 +9,7 @@ export function Home(): ReactElement {
   return (
     <HomeContainer>
       <Header>
-        <h1 className='page-title'>Buy Your Favorite Products From Home</h1>
-        <Button>Explore</Button>
+        <h1 className='page-title'>Buy From Home</h1>
       </Header>
       <div className='products-container'>
         <Products products={products} />
