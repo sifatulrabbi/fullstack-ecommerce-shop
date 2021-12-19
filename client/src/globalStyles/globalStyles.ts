@@ -37,8 +37,8 @@ export const GlobalStyles = createGlobalStyle`
       padding-right: 8vw;
 
       @media screen and (max-width: 800px) {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
     }
 
