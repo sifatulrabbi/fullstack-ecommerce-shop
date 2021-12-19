@@ -1,8 +1,9 @@
 import React from 'react';
-import { CartContainer } from './cart.styles';
+import { Button, CartContainer } from './cart.styles';
 import { CartItem } from '../../components';
 import { IProduct } from '../../typings';
 import { products } from '../../mock-db';
+import { Link } from 'react-router-dom';
 
 export function CartPage(): React.ReactElement {
   const [cartItems, setCartItems] = React.useState<IProduct[]>([...products]);
@@ -19,6 +20,20 @@ export function CartPage(): React.ReactElement {
               total={item.disc_price ? item.disc_price : item.price}
             />
           ))}
+        </div>
+        <div className='wrapper total'>
+          <div className='cart-total'>
+            <span>Your Total</span>
+            <span className='amount'>$ 5000</span>
+          </div>
+          <div className='cart-actions'>
+            <Link to='/'>
+              <Button secondary>Go back</Button>
+            </Link>
+            <Link to='/checkout'>
+              <Button>Checkout</Button>
+            </Link>
+          </div>
         </div>
       </div>
     </CartContainer>

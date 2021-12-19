@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { buttonBase } from '../../globalStyles';
 
 export const CartContainer = styled.section`
   margin-top: 80px;
@@ -24,6 +25,32 @@ export const CartContainer = styled.section`
       grid-template-columns: 1fr;
       align-content: center;
       grid-gap: 1rem;
+
+      &.total {
+        align-content: flex-start;
+        justify-items: center;
+        grid-gap: 15vh;
+      }
+    }
+
+    .cart-total {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      font-family: ${({ theme }) => theme.typography.fontFamily.heading};
+      text-transform: uppercase;
+
+      .amount {
+        font-weight: 700;
+        font-size: ${({ theme }) => theme.typography.fontSize.h2};
+      }
+    }
+
+    .cart-actions {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
     }
 
     @media screen and (min-width: ${({ theme }) => theme.breakpoint}) {
@@ -31,3 +58,5 @@ export const CartContainer = styled.section`
     }
   }
 `;
+
+export const Button = styled(buttonBase)``;

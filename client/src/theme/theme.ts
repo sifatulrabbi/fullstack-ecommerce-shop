@@ -17,8 +17,8 @@ export const theme = {
         letterSpacing: { big: '5px', normal: '0.4px' },
         fontFamily: { body: `'Poppins', sans-serif`, heading: `'Oswald', sans-serif` },
         fontSize: {
-            h1: 'clamp(3rem, 4vw, 5rem)',
-            h2: 'clamp(2rem, 4vw, 3.5rem)',
+            h1: 'clamp(3.8rem, 4vw, 5rem)',
+            h2: 'clamp(3rem, 4vw, 3.5rem)',
             h3: '1.8rem',
             h4: '1.3rem',
             caption: '.7rem',
