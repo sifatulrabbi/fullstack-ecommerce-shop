@@ -37,21 +37,21 @@ export function Navbar(): ReactElement {
                 placeholder={'search...'}
                 maxLength={100}
               />
-              <button className='search-button'>
+              <button className='search-button' onClick={() => toggleMenu(false)}>
                 <FaSearch />
               </button>
             </SearchBar>
           </li>
-          <li>
+          <li onClick={() => toggleMenu(false)}>
             <Link to='/'>Categories</Link>
           </li>
-          <li>
+          <li onClick={() => toggleMenu(false)}>
             <Link to='/'>Offers</Link>
           </li>
           <li>
-            <Button>
-              <Link to='/'>Login</Link>
-            </Button>
+            <Link to='/login'>
+              <Button onClick={() => toggleMenu(false)}>Login</Button>
+            </Link>
           </li>
         </NavMenu>
         <button className='menu-btn' onClick={() => toggleMenu()}>
