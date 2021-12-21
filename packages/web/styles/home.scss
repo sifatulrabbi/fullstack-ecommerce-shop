@@ -1,0 +1,14 @@
+.home-page {
+  @include page-container();
+
+  .title {
+    font-size: $font-size-h1;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .button {
+    @include button();
+  }
+}

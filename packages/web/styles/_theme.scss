@@ -1,0 +1,28 @@
+$primary-main: #1c77ff;
+$primary-dark: #1c2634;
+
+$background-dark: #f9f9f9;
+$background-light: #fff;
+
+$font-color-primary: #222;
+$font-color-secondary: #555;
+
+$shadow-color-light: rgba(0, 0, 0, 0.15);
+$shadow-color-dark: rgba(0, 0, 0, 0.25);
+
+$shadow-100: $shadow-color-light 0px 0px 2px 0px;
+$shadow-400: $shadow-color-light 0px 2px 6px -1px;
+$shadow-500: $shadow-color-dark 2px 4px 12px -2px;
+$shadow-700: $shadow-color-dark 2px 4px 22px -2px;
+
+$border-radius: 6px;
+
+$font-size-body: 16px;
+$font-size-body2: 14px;
+$font-size-caption: 12px;
+$font-size-h4: clamp(22px, 3vw, 34px);
+$font-size-h3: clamp(30px, 4vw, 42px);
+$font-size-h2: clamp(38px, 5vw, 50px);
+$font-size-h1: clamp(46px, 6vw, 58px);
+
+$breakpoint: 800px;

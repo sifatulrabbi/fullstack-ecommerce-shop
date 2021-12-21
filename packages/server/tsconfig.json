@@ -1,24 +1,11 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2017",
-    "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true,
-    "strictBindCallApply": false,
     "esModuleInterop": false,
-    "forceConsistentCasingInFileNames": false,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "removeComments": true,
-    "noFallthroughCasesInSwitch": false
+    "moduleResolution": "node"
   }
 }

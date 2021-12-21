@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "incremental": true,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "noFallthroughCasesInSwitch": false
+  }
+}
