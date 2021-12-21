@@ -1,4 +1,4 @@
-import { ValidationPipeOptions } from '@nestjs/common';
+import { ValidationPipeOptions } from "@nestjs/common";
 
 export const validationOptions: ValidationPipeOptions = {
     transform: true,

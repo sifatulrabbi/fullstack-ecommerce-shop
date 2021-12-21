@@ -1,12 +1,17 @@
-import { ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { validationOptions } from './configs';
+import { ValidationPipe, VersioningType } from "@nestjs/common";
+import { NestFactory } from "@nestjs/core";
+import { AppModule } from "./app.module";
+import { config } from "./configs";
 
 async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule);
-    await app.listen(5000);
 
-    app.useGlobalPipes(new ValidationPipe(validationOptions));
+    app.enableVersioning({
+        type: VersioningType.URI,
+    });
+    app.useGlobalPipes(new ValidationPipe(config.validationOptions));
+    app.enableCors();
+
+    await app.listen(config.PORT);
 }
 bootstrap();
