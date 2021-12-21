@@ -1,0 +1,8 @@
+{
+  "name": "web",
+  "version": "0.5.0",
+  "main": "index.js",
+  "author": "Sifatul <mdsifatulislam.rabbi@gmail.com> (https://temujins.github.io)",
+  "license": "MIT",
+  "private": true
+}
