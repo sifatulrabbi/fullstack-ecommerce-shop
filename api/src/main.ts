@@ -3,10 +3,10 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { validationOptions } from './configs';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(5000);
+async function bootstrap(): Promise<void> {
+    const app = await NestFactory.create(AppModule);
+    await app.listen(5000);
 
-  app.useGlobalPipes(new ValidationPipe(validationOptions));
+    app.useGlobalPipes(new ValidationPipe(validationOptions));
 }
 bootstrap();
