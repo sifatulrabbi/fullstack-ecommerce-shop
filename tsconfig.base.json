@@ -3,7 +3,6 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
