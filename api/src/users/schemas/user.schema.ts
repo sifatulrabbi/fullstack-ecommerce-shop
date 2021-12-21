@@ -1,12 +1,8 @@
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import { Types } from 'mongoose';
+import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 // import { IsString, IsNotEmpty, MaxLength, MinLength, IsEmail } from 'class-validator';
 
 @Schema({ timestamps: true })
-export class User implements IUser {
-    @Prop({ required: true, type: Types.ObjectId, auto: true })
-    _id!: Types.ObjectId;
-
+export class User {
     @Prop({ required: true, unique: true })
     email!: string;
 
