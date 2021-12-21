@@ -9,8 +9,8 @@ async function bootstrap(): Promise<void> {
     app.enableVersioning({
         type: VersioningType.URI,
     });
-
     app.useGlobalPipes(new ValidationPipe(config.validationOptions));
+    app.enableCors();
 
     await app.listen(config.PORT);
 }

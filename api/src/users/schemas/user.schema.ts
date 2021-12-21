@@ -1,8 +1,7 @@
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
-// import { IsString, IsNotEmpty, MaxLength, MinLength, IsEmail } from 'class-validator';
 
 @Schema({ timestamps: true })
-export class User {
+export class User implements IUser {
     @Prop({ required: true, unique: true })
     email!: string;
 
@@ -13,4 +12,4 @@ export class User {
     name!: string;
 }
 
-export const userSchema = SchemaFactory.createForClass(User);
+export const userSchema = SchemaFactory.createForClass<IUser>(User);
