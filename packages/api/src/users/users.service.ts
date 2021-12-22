@@ -20,14 +20,6 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto): Promise<IUserView> {
-    if (createUserDto.password !== createUserDto.confirm_password) {
-      throw new BadRequestException("Password and Confirm Password doesn't match");
-    }
-
-    if (await this.usersModel.findOne({ email: createUserDto.email })) {
-      throw new BadRequestException("Email already taken");
-    }
-
     const newUser: IUserDocument = new this.usersModel({
       name: createUserDto.name,
       email: createUserDto.email,
@@ -50,31 +42,23 @@ export class UsersService {
     id?: string;
     email?: string;
   }): Promise<{ user: IUserDocument; trimmedUser: IUserView }> {
-    const user: IUserDocument | null = id
-      ? await this.usersModel.findById(id)
-      : email
-      ? await this.usersModel.findOne({ email })
-      : null;
+    try {
+      const user: IUserDocument | null = id
+        ? await this.usersModel.findById(id)
+        : email
+        ? await this.usersModel.findOne({ email })
+        : null;
 
-    if (!user) {
-      throw new NotFoundException("User not found");
+      if (!user) {
+        throw new NotFoundException("User not found");
+      }
+      return { user, trimmedUser: this.trimUser(user) };
+    } catch (err) {
+      throw new BadRequestException(`Unable to find the user. ${String(err)}`);
     }
-    return { user, trimmedUser: this.trimUser(user) };
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<IUserView> {
-    if (!(await this.usersModel.findById(id))) {
-      throw new NotFoundException("User not found");
-    }
-
-    if (
-      updateUserDto.password &&
-      updateUserDto.confirm_password &&
-      updateUserDto.password !== updateUserDto.confirm_password
-    ) {
-      throw new BadRequestException("Password and Confirm Password doesn't match");
-    }
-
     const user: IUserDocument | null = await this.usersModel.findByIdAndUpdate(
       id,
       {
@@ -93,9 +77,8 @@ export class UsersService {
   }
 
   async remove(id: string): Promise<string> {
-    await this.usersModel.findByIdAndRemove(id).catch((err) => {
-      throw new BadRequestException(String(err));
-    });
-    return "User removed";
+    const user = await this.findOne({ id });
+    user.user.remove();
+    return `User ${user.user.name} has been removed`;
   }
 }

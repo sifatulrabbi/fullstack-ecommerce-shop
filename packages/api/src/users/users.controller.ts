@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from "@nestjs/common";
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+  Res,
+  BadRequestException,
+  NotFoundException,
+} from "@nestjs/common";
+import { Response } from "express";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
@@ -8,7 +20,11 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto): Promise<IUserView> {
+  async create(@Res() res: Response, @Body() createUserDto: CreateUserDto): Promise<IUserView> {
+    if (res.locals.foundUser) {
+      throw new BadRequestException("Email already taken");
+    }
+
     return this.usersService.create(createUserDto);
   }
 
