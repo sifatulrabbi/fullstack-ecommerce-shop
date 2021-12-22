@@ -3,7 +3,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { UsersService } from "./users.service";
 import { UsersController } from "./users.controller";
 import { userSchema } from "./schemas/user.schema";
-import { ConvertPasswordMiddleware, FindUserMiddleware } from "../middlewares";
+import { ConvertPasswordMiddleware, FindUserMiddleware } from "../../middlewares";
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: "users", schema: userSchema }])],

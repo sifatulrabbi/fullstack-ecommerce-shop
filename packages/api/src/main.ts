@@ -1,6 +1,6 @@
 import { ValidationPipe, VersioningType } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
+import { AppModule } from "./apps/app.module";
 import { config } from "./configs";
 
 async function bootstrap(): Promise<void> {

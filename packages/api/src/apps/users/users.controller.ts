@@ -8,13 +8,11 @@ import {
   Delete,
   Res,
   BadRequestException,
-  UseGuards,
 } from "@nestjs/common";
 import { Response } from "express";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { LocalAuthGuard } from "../auth";
 
 @Controller({ version: "1", path: "users" })
 export class UsersController {
@@ -34,20 +32,17 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @UseGuards(LocalAuthGuard)
   @Get(":id")
   async findOne(@Param("id") id: string): Promise<IUserView> {
     const user = await this.usersService.findOne({ id });
     return user.trimmedUser;
   }
 
-  @UseGuards(LocalAuthGuard)
   @Put(":id")
   update(@Param("id") id: string, @Body() updateUserDto: UpdateUserDto): Promise<IUserView> {
     return this.usersService.update(id, updateUserDto);
   }
 
-  @UseGuards(LocalAuthGuard)
   @Delete(":id")
   remove(@Param("id") id: string): Promise<string> {
     return this.usersService.remove(id);
