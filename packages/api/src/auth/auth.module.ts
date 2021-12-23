@@ -12,7 +12,7 @@ import { config } from "../configs";
     UsersModule,
     JwtModule.register({
       secret: config.JWT_SECRET,
-      signOptions: { expiresIn: "60s" },
+      signOptions: { expiresIn: "3600s" },
     }),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],

@@ -4,6 +4,7 @@ import { validationOptions } from "./validation.config";
 dotenv.config();
 
 const PORT: number = parseInt(process.env.PORT || "5000", 10);
+
 let MONGO_URI: string;
 let JWT_SECRET: string;
 
