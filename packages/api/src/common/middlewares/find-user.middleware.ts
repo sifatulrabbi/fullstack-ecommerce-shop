@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NestMiddleware } from "@nestjs/common";
 import { Request, Response, NextFunction } from "express";
-import { UsersService } from "../apps/users";
+import { UsersService } from "../../apps/users";
 
 @Injectable()
 export class FindUserMiddleware implements NestMiddleware {

@@ -5,7 +5,7 @@ import { AppService } from "./app.service";
 import { UsersModule } from "./users";
 import { config } from "../configs";
 import { AuthModule } from "../auth";
-import { ValidLoginMiddleware } from "../middlewares";
+import { ValidLoginMiddleware } from "../common/middlewares";
 
 @Module({
   imports: [MongooseModule.forRoot(config.MONGO_URI), UsersModule, AuthModule],
