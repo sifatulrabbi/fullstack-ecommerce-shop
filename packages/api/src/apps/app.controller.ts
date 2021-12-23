@@ -2,7 +2,7 @@ import { Controller, Get, Post, UseGuards, Request as Req } from "@nestjs/common
 import { Request } from "express";
 import { AppService } from "./app.service";
 import { AuthService } from "../auth";
-import { LocalAuthGuard } from "../guards";
+import { JwtAuthGuard, LocalAuthGuard } from "../guards";
 
 @Controller({ version: "1" })
 export class AppController {
@@ -17,5 +17,11 @@ export class AppController {
   @Post("auth/login")
   async login(@Req() req: Request): Promise<{ access_token: string } | null> {
     return req.user ? this.authService.login(req.user as IUserView) : null;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get("profile")
+  async getProfile(@Req() req: Request): Promise<IUserView> {
+    return req.user as IUserView;
   }
 }
