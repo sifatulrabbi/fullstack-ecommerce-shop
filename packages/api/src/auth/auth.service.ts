@@ -13,11 +13,11 @@ export class AuthService {
   async validateUser(email: string, password: string): Promise<IUserView> {
     const user = await this.usersService.findOne({ email });
 
-    if (!(await bcrypt.compare(password, user.user.password))) {
+    if (!(await bcrypt.compare(password, user.password))) {
       throw new UnauthorizedException("Incorrect password");
     }
 
-    return user.trimmedUser;
+    return user;
   }
 
   async login(user: IUserView): Promise<{ access_token: string }> {
