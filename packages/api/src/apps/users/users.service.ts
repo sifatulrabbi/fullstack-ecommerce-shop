@@ -35,13 +35,7 @@ export class UsersService {
     return users;
   }
 
-  async findOne({
-    id,
-    email,
-  }: {
-    id?: string;
-    email?: string;
-  }): Promise<{ user: IUserDocument; trimmedUser: IUserView }> {
+  async findOne({ id, email }: { id?: string; email?: string }): Promise<IUserDocument | null> {
     try {
       const user: IUserDocument | null = id
         ? await this.usersModel.findById(id)
@@ -49,10 +43,8 @@ export class UsersService {
         ? await this.usersModel.findOne({ email })
         : null;
 
-      if (!user) {
-        throw new NotFoundException("User not found");
-      }
-      return { user, trimmedUser: this.trimUser(user) };
+      return user;
+      // return { user, trimmedUser: this.trimUser(user) };
     } catch (err) {
       throw new BadRequestException(`Unable to find the user. ${String(err)}`);
     }
@@ -76,9 +68,12 @@ export class UsersService {
     return this.trimUser(user);
   }
 
-  async remove(id: string): Promise<string> {
+  async remove(id: string): Promise<string | null> {
     const user = await this.findOne({ id });
-    user.user.remove();
-    return `User ${user.user.name} has been removed`;
+    if (!user) {
+      return null;
+    }
+    user.remove();
+    return `User ${user.name} has been removed`;
   }
 }

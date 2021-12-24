@@ -6,26 +6,23 @@ import {
   Put,
   Param,
   Delete,
-  Res,
-  BadRequestException,
   UseGuards,
+  UseInterceptors,
 } from "@nestjs/common";
-import { Response } from "express";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { JwtAuthGuard } from "../../guards";
+import { JwtAuthGuard, UserEmailGuard } from "../../common/guards";
+import { TransformPasswordInterceptor, TransformUserInterceptor } from "../../common/interceptors";
 
 @Controller({ version: "1", path: "users" })
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @UseGuards(UserEmailGuard)
+  @UseInterceptors(TransformPasswordInterceptor, TransformUserInterceptor)
   @Post()
-  async create(@Res() res: Response, @Body() createUserDto: CreateUserDto): Promise<IUserView> {
-    if (res.locals.foundUser) {
-      throw new BadRequestException("Email already taken");
-    }
-
+  create(@Body() createUserDto: CreateUserDto): Promise<IUserView> {
     return this.usersService.create(createUserDto);
   }
 
@@ -34,13 +31,14 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @UseInterceptors(TransformUserInterceptor)
   @Get(":id")
-  async findOne(@Param("id") id: string): Promise<IUserView> {
-    const user = await this.usersService.findOne({ id });
-    return user.trimmedUser;
+  findOne(@Param("id") id: string): Promise<IUserDocument | null> {
+    return this.usersService.findOne({ id });
   }
 
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(UserEmailGuard, JwtAuthGuard)
+  @UseInterceptors(TransformUserInterceptor)
   @Put(":id")
   update(@Param("id") id: string, @Body() updateUserDto: UpdateUserDto): Promise<IUserView> {
     return this.usersService.update(id, updateUserDto);
@@ -48,7 +46,7 @@ export class UsersController {
 
   @UseGuards(JwtAuthGuard)
   @Delete(":id")
-  remove(@Param("id") id: string): Promise<string> {
+  remove(@Param("id") id: string): Promise<string | null> {
     return this.usersService.remove(id);
   }
 }

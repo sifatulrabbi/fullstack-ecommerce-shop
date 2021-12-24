@@ -11,4 +11,11 @@ declare global {
   type IUserDocument = IUser & Document;
 
   type IUserView = Omit<IUser, "password">;
+
+  declare namespace ENUMS {
+    enum Role {
+      User = "user",
+      Admin = "admin",
+    }
+  }
 }
