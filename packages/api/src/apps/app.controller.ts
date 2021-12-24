@@ -1,4 +1,4 @@
-import { Controller, Get, Post, UseGuards, Request as Req } from "@nestjs/common";
+import { Controller, Get, Post, UseGuards, Req } from "@nestjs/common";
 import { Request } from "express";
 import { AppService } from "./app.service";
 import { AuthService } from "../auth";
@@ -16,7 +16,7 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post("auth/login")
   async login(@Req() req: Request): Promise<{ access_token: string } | null> {
-    return req.user ? this.authService.login(req.user as IUserView) : null;
+    return req.user ? this.authService.login(req.user as IUserDocument) : null;
   }
 
   @UseGuards(JwtAuthGuard)

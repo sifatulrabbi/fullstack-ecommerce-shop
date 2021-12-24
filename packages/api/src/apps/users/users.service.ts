@@ -35,7 +35,7 @@ export class UsersService {
     return users;
   }
 
-  async findOne({ id, email }: { id?: string; email?: string }): Promise<IUserDocument> {
+  async findOne({ id, email }: { id?: string; email?: string }): Promise<IUserDocument | null> {
     try {
       const user: IUserDocument | null = id
         ? await this.usersModel.findById(id)
@@ -43,9 +43,6 @@ export class UsersService {
         ? await this.usersModel.findOne({ email })
         : null;
 
-      if (!user) {
-        throw new NotFoundException("User not found");
-      }
       return user;
       // return { user, trimmedUser: this.trimUser(user) };
     } catch (err) {
@@ -71,8 +68,11 @@ export class UsersService {
     return this.trimUser(user);
   }
 
-  async remove(id: string): Promise<string> {
+  async remove(id: string): Promise<string | null> {
     const user = await this.findOne({ id });
+    if (!user) {
+      return null;
+    }
     user.remove();
     return `User ${user.name} has been removed`;
   }

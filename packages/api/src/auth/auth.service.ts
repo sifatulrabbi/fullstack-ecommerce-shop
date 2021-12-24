@@ -10,8 +10,12 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validateUser(email: string, password: string): Promise<IUserView> {
+  async validateUser(email: string, password: string): Promise<IUserDocument | null> {
     const user = await this.usersService.findOne({ email });
+
+    if (!user) {
+      return null;
+    }
 
     if (!(await bcrypt.compare(password, user.password))) {
       throw new UnauthorizedException("Incorrect password");
