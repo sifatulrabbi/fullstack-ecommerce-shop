@@ -13,6 +13,7 @@ import {
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { ShopsService } from "./shops.service";
 import { JwtAuthGuard } from "../../common/guards";
+import { TransformShopDataInterceptor } from "../../common/interceptors";
 
 @Controller({ version: "1", path: "shops" })
 export class ShopsController {
@@ -33,12 +34,14 @@ export class ShopsController {
     return shop;
   }
 
+  @UseInterceptors(TransformShopDataInterceptor)
   @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createShopDto: CreateShopDto): Promise<IShopDocument> {
     return this.shopsService.create(createShopDto);
   }
 
+  @UseInterceptors(TransformShopDataInterceptor)
   @UseGuards(JwtAuthGuard)
   @Put("/:id")
   update(
