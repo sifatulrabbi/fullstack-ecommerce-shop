@@ -6,7 +6,7 @@ export class Shop implements IShop {
   name!: string;
 
   @Prop({ required: true })
-  owner_id!: string | undefined;
+  owner_id!: string;
 
   @Prop({ required: true })
   description!: string;

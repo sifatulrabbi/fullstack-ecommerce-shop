@@ -12,6 +12,7 @@ import {
 } from "@nestjs/common";
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { ShopsService } from "./shops.service";
+import { JwtAuthGuard } from "../../common/guards";
 
 @Controller({ version: "1", path: "shops" })
 export class ShopsController {
@@ -32,11 +33,13 @@ export class ShopsController {
     return shop;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createShopDto: CreateShopDto): Promise<IShopDocument> {
     return this.shopsService.create(createShopDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put("/:id")
   update(
     @Param("id") id: string,
@@ -45,6 +48,7 @@ export class ShopsController {
     return this.shopsService.update(id, updateShopDto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete("/:id")
   remove(@Param("id") id: string): Promise<string> {
     return this.shopsService.remove(id);

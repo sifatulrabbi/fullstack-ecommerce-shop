@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
@@ -38,13 +42,17 @@ export class ShopsService {
     id?: string;
     owner_id?: string;
   }): Promise<IShopDocument | null> {
-    const shop = owner_id
-      ? await this.shopsModel.findOne({ owner_id })
-      : id
-      ? await this.shopsModel.findById(id)
-      : null;
+    try {
+      const shop = owner_id
+        ? await this.shopsModel.findOne({ owner_id })
+        : id
+        ? await this.shopsModel.findById(id)
+        : null;
 
-    return shop;
+      return shop;
+    } catch (err) {
+      throw new BadRequestException(String(err));
+    }
   }
 
   async remove(id: string): Promise<string> {
