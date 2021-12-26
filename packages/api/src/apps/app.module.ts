@@ -5,9 +5,15 @@ import { AppService } from "./app.service";
 import { UsersModule } from "./users";
 import { config } from "../configs";
 import { AuthModule } from "../auth";
+import { ShopsModule } from "./shops";
 
 @Module({
-  imports: [MongooseModule.forRoot(config.MONGO_URI), UsersModule, AuthModule],
+  imports: [
+    MongooseModule.forRoot(config.MONGO_URI),
+    UsersModule,
+    ShopsModule,
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

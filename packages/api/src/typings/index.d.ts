@@ -1,6 +1,13 @@
 import { Document } from "mongoose";
 
 declare global {
+  declare namespace ENUMS {
+    enum Role {
+      User = "user",
+      Admin = "admin",
+    }
+  }
+
   interface IUser {
     _id?: string;
     email: string;
@@ -12,10 +19,20 @@ declare global {
 
   type IUserView = Omit<IUser, "password">;
 
-  declare namespace ENUMS {
-    enum Role {
-      User = "user",
-      Admin = "admin",
+  interface IShop {
+    _id?: string;
+    owner_id?: string;
+    name: string;
+    description: string;
+    categories: string[];
+    products?: string[];
+  }
+
+  type IShopDocument = IShop & Document;
+
+  namespace Express {
+    interface Request {
+      users?: IUserView;
     }
   }
 }
