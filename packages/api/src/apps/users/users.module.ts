@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
 import { UsersService } from "./users.service";
 import { UsersController } from "./users.controller";

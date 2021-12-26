@@ -6,7 +6,10 @@ import { JwtAuthGuard, LocalAuthGuard } from "../common/guards";
 
 @Controller({ version: "1" })
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly authService: AuthService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly authService: AuthService,
+  ) {}
 
   @Get()
   getHello(): string {

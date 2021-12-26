@@ -17,7 +17,10 @@ module.exports = {
   },
   ignorePatterns: [".eslintrc.js", ".prettierrc.js"],
   rules: {
-    "no-unused-vars": ["warn", { vars: "all", args: "after-used", ignoreRestSiblings: false }],
+    "no-unused-vars": [
+      "warn",
+      { vars: "all", args: "after-used", ignoreRestSiblings: false },
+    ],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",

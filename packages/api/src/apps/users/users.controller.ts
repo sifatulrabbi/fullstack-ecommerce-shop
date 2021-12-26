@@ -13,7 +13,10 @@ import { UsersService } from "./users.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { JwtAuthGuard, UserEmailGuard } from "../../common/guards";
-import { TransformPasswordInterceptor, TransformUserInterceptor } from "../../common/interceptors";
+import {
+  TransformPasswordInterceptor,
+  TransformUserInterceptor,
+} from "../../common/interceptors";
 
 @Controller({ version: "1", path: "users" })
 export class UsersController {
@@ -40,7 +43,10 @@ export class UsersController {
   @UseGuards(UserEmailGuard, JwtAuthGuard)
   @UseInterceptors(TransformUserInterceptor)
   @Put(":id")
-  update(@Param("id") id: string, @Body() updateUserDto: UpdateUserDto): Promise<IUserView> {
+  update(
+    @Param("id") id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<IUserView> {
     return this.usersService.update(id, updateUserDto);
   }
 
