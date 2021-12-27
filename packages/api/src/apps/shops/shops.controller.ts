@@ -9,11 +9,14 @@ import {
   NotFoundException,
   UseGuards,
   UseInterceptors,
+  Request as Req,
 } from "@nestjs/common";
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { ShopsService } from "./shops.service";
 import { JwtAuthGuard } from "../../common/guards";
-import { TransformShopDataInterceptor } from "../../common/interceptors";
+import { AddUserIdInterceptor } from "../../common/interceptors";
+import { Roles } from "../../common/decorators";
+import { Request } from "express";
 
 @Controller({ version: "1", path: "shops" })
 export class ShopsController {
@@ -34,26 +37,38 @@ export class ShopsController {
     return shop;
   }
 
-  @UseInterceptors(TransformShopDataInterceptor)
+  @UseInterceptors(AddUserIdInterceptor)
   @UseGuards(JwtAuthGuard)
+  @Roles("admin", "owner")
   @Post()
-  create(@Body() createShopDto: CreateShopDto): Promise<IShopDocument> {
+  create(
+    @Req() req: Request,
+    @Body() createShopDto: CreateShopDto,
+  ): Promise<IShopDocument> {
     return this.shopsService.create(createShopDto);
   }
 
-  @UseInterceptors(TransformShopDataInterceptor)
+  @UseInterceptors(AddUserIdInterceptor)
   @UseGuards(JwtAuthGuard)
+  @Roles("admin", "owner")
   @Put("/:id")
   update(
+    @Req() req: Request,
     @Param("id") id: string,
     @Body() updateShopDto: UpdateShopDto,
   ): Promise<IShopDocument> {
-    return this.shopsService.update(id, updateShopDto);
+    const user = req.user as IUserView;
+
+    return this.shopsService.update(id, user._id || "id", updateShopDto);
   }
 
+  @UseInterceptors(AddUserIdInterceptor)
   @UseGuards(JwtAuthGuard)
+  @Roles("admin", "owner")
   @Delete("/:id")
-  remove(@Param("id") id: string): Promise<string> {
-    return this.shopsService.remove(id);
+  remove(@Req() req: Request, @Param("id") id: string): Promise<string> {
+    const user = req.user as IUserView;
+
+    return this.shopsService.remove(id, user._id || "id");
   }
 }
