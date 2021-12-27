@@ -13,6 +13,7 @@ declare global {
     email: string;
     password: string;
     name: string;
+    shop_id?: string;
   }
 
   type IUserDocument = IUser & Document;

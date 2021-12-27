@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { Model } from "mongoose";
 import { InjectModel } from "@nestjs/mongoose";
 import { CreateUserDto } from "./dto/create-user.dto";
@@ -54,7 +50,6 @@ export class UsersService {
         : null;
 
       return user;
-      // return { user, trimmedUser: this.trimUser(user) };
     } catch (err) {
       throw new BadRequestException(`Unable to find the user. ${String(err)}`);
     }
@@ -63,11 +58,7 @@ export class UsersService {
   async update(id: string, updateUserDto: UpdateUserDto): Promise<IUserView> {
     const user: IUserDocument | null = await this.usersModel.findByIdAndUpdate(
       id,
-      {
-        email: updateUserDto.email,
-        name: updateUserDto.name,
-        password: updateUserDto.password,
-      },
+      updateUserDto,
       { new: true },
     );
 
@@ -77,7 +68,7 @@ export class UsersService {
       );
     }
 
-    return this.trimUser(user);
+    return user;
   }
 
   async remove(id: string): Promise<string | null> {

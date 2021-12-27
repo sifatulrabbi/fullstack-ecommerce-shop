@@ -40,8 +40,8 @@ export class UsersController {
     return this.usersService.findOne({ id });
   }
 
-  @UseGuards(UserEmailGuard, JwtAuthGuard)
-  @UseInterceptors(TransformUserInterceptor)
+  @UseGuards(UserEmailGuard)
+  @UseInterceptors(TransformPasswordInterceptor, TransformUserInterceptor)
   @Put(":id")
   update(
     @Param("id") id: string,

@@ -13,13 +13,13 @@ export class UserEmailGuard implements CanActivate {
   constructor(private readonly usersService: UsersService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const { body }: Request = context.switchToHttp().getRequest();
+    const req: Request = context.switchToHttp().getRequest();
 
-    if (!body.email) {
+    if (!req.body.email && req.method === "POST") {
       throw new NotFoundException("Email is required");
     }
 
-    const user = await this.usersService.findOne({ email: body.email });
+    const user = await this.usersService.findOne({ email: req.body.email });
     if (user) {
       throw new BadRequestException("Email already in use");
     }

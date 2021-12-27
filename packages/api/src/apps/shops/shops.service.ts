@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from "@nestjs/common";
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { InjectModel } from "@nestjs/mongoose";
@@ -16,17 +17,32 @@ export class ShopsService {
 
   async create(dto: CreateShopDto): Promise<IShopDocument> {
     const newShop = await new this.shopsModel(dto).save();
+
     return newShop;
   }
 
-  async update(id: string, dto: UpdateShopDto): Promise<IShopDocument> {
+  async update(
+    id: string,
+    ownerId: string,
+    dto: UpdateShopDto,
+  ): Promise<IShopDocument> {
     const shop = await this.findOne({ id });
 
     if (!shop) {
       throw new NotFoundException("Shop not found");
     }
 
-    const updatedShop = await shop.updateOne(dto, { new: true });
+    if (ownerId !== shop.owner_id) {
+      throw new UnauthorizedException("You can only update your own shop");
+    }
+
+    const updatedShop = await this.shopsModel.findByIdAndUpdate(id, dto, {
+      new: true,
+    });
+
+    if (!updatedShop) {
+      throw new BadRequestException("Unable to update the shop");
+    }
     return updatedShop;
   }
 
@@ -55,11 +71,15 @@ export class ShopsService {
     }
   }
 
-  async remove(id: string): Promise<string> {
+  async remove(id: string, ownerId: string): Promise<string> {
     const shop = await this.findOne({ id });
 
     if (!shop) {
       throw new NotFoundException("Shop not found");
+    }
+
+    if (ownerId !== shop.owner_id) {
+      throw new UnauthorizedException("You can only delete your own shop");
     }
 
     await shop.remove();

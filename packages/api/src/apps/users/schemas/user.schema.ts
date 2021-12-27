@@ -10,6 +10,9 @@ export class User implements IUser {
 
   @Prop({ required: true })
   name!: string;
+
+  @Prop()
+  shop_id?: string;
 }
 
 export const userSchema = SchemaFactory.createForClass<IUser>(User);
