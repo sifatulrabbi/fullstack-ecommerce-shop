@@ -6,6 +6,7 @@ import { UsersModule } from "./users";
 import { config } from "../configs";
 import { AuthModule } from "../auth";
 import { ShopsModule } from "./shops";
+import { ProductsModule } from "./products";
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ShopsModule } from "./shops";
     UsersModule,
     ShopsModule,
     AuthModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

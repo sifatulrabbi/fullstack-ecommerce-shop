@@ -31,6 +31,23 @@ declare global {
 
   type IShopDocument = IShop & Document;
 
+  interface IProduct {
+    _id: string;
+    name: string;
+    summary: string;
+    description: string;
+    price: number;
+    tags: string[];
+    discount: {
+      active: boolean;
+      price?: number;
+      start?: number;
+      end?: number;
+    };
+  }
+
+  type IProductDocument = IProduct & Document;
+
   namespace Express {
     interface Request {
       users?: IUserView;
