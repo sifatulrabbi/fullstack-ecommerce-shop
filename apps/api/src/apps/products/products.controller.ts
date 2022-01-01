@@ -8,9 +8,13 @@ import {
   NotFoundException,
   Body,
   Query,
+  UseGuards,
+  UseInterceptors,
 } from "@nestjs/common";
 import { CreateProductDto, UpdateProductDto } from "./dto";
 import { ProductsService } from "./products.service";
+import { JwtAuthGuard } from "../../common/guards";
+import { AddShopIdInterceptor } from "../../common/interceptors";
 
 @Controller({ path: "products", version: "1" })
 export class ProductsController {
@@ -30,6 +34,8 @@ export class ProductsController {
     return products;
   }
 
+  @UseInterceptors(AddShopIdInterceptor)
+  @UseGuards(JwtAuthGuard)
   @Post()
   async createProduct(@Body() createDto: CreateProductDto): Promise<IProduct> {
     const product = await this.productsService.createProduct(createDto);
@@ -47,6 +53,8 @@ export class ProductsController {
     return product;
   }
 
+  @UseInterceptors(AddShopIdInterceptor)
+  @UseGuards(JwtAuthGuard)
   @Put("/:id")
   async updateProduct(
     @Param("id") id: string,
@@ -61,6 +69,8 @@ export class ProductsController {
     return product;
   }
 
+  @UseInterceptors(AddShopIdInterceptor)
+  @UseGuards(JwtAuthGuard)
   @Delete("/:id")
   async removeProduct(@Param("id") id: string): Promise<string> {
     const product = await this.productsService.removeProduct(id);

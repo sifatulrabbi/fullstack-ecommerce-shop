@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsNumber, MaxLength } from "class-validator";
 
-export class CreateProductDto implements Omit<IProduct, "_id"> {
+export class CreateProductDto implements Omit<IProduct, "_id" | "shop_id"> {
   @MaxLength(100)
   @IsString()
   @IsNotEmpty()

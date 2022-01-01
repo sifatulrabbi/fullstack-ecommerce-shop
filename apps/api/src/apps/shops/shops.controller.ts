@@ -14,7 +14,10 @@ import {
 import { CreateShopDto, UpdateShopDto } from "./dto";
 import { ShopsService } from "./shops.service";
 import { JwtAuthGuard } from "../../common/guards";
-import { AddUserIdInterceptor } from "../../common/interceptors";
+import {
+  AddUserIdInterceptor,
+  UpdateUserShopInterceptor,
+} from "../../common/interceptors";
 import { Roles } from "../../common/decorators";
 import { Request } from "express";
 
@@ -27,7 +30,7 @@ export class ShopsController {
     return this.shopsService.findAll();
   }
 
-  @Get("/:id")
+  @Get("/find/:id")
   async getShop(@Param("id") id: string): Promise<IShopDocument> {
     const shop = await this.shopsService.findOne({ id });
 
@@ -37,38 +40,56 @@ export class ShopsController {
     return shop;
   }
 
-  @UseInterceptors(AddUserIdInterceptor)
+  @UseGuards(JwtAuthGuard)
+  @Get("/my-shop")
+  async getMyShop(@Req() req: Request): Promise<IShopDocument> {
+    const user = req.user as IUserView;
+
+    if (user.shop_id) {
+      const shop = await this.shopsService.findOne({ id: user.shop_id });
+
+      if (!shop) {
+        throw new NotFoundException("No shop found please create one");
+      }
+      return shop;
+    }
+    throw new NotFoundException("No shop found please create one");
+  }
+
+  @UseInterceptors(AddUserIdInterceptor, UpdateUserShopInterceptor)
   @UseGuards(JwtAuthGuard)
   @Roles("admin", "owner")
-  @Post()
-  create(
-    @Req() req: Request,
-    @Body() createShopDto: CreateShopDto,
-  ): Promise<IShopDocument> {
+  @Post("/my-shop")
+  create(@Body() createShopDto: CreateShopDto): Promise<IShopDocument> {
     return this.shopsService.create(createShopDto);
   }
 
   @UseInterceptors(AddUserIdInterceptor)
   @UseGuards(JwtAuthGuard)
   @Roles("admin", "owner")
-  @Put("/:id")
+  @Put("/my-shop")
   update(
     @Req() req: Request,
-    @Param("id") id: string,
     @Body() updateShopDto: UpdateShopDto,
   ): Promise<IShopDocument> {
     const user = req.user as IUserView;
 
-    return this.shopsService.update(id, user._id || "id", updateShopDto);
+    if (user.shop_id) {
+      return this.shopsService.update(user.shop_id, updateShopDto);
+    }
+    throw new NotFoundException("No shop found please create one");
   }
 
-  @UseInterceptors(AddUserIdInterceptor)
+  @UseInterceptors(AddUserIdInterceptor, UpdateUserShopInterceptor)
   @UseGuards(JwtAuthGuard)
   @Roles("admin", "owner")
-  @Delete("/:id")
-  remove(@Req() req: Request, @Param("id") id: string): Promise<string> {
+  @Delete("/my-shop")
+  remove(@Req() req: Request): Promise<string> {
     const user = req.user as IUserView;
 
-    return this.shopsService.remove(id, user._id || "id");
+    if (user.shop_id) {
+      return this.shopsService.remove(user.shop_id);
+    }
+    throw new NotFoundException("No shop found please create one");
   }
 }
