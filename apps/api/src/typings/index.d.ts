@@ -38,6 +38,7 @@ declare global {
     description: string;
     price: number;
     tags: string[];
+    shop_id: string;
     discount: {
       active: boolean;
       price?: number;
