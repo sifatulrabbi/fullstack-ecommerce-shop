@@ -12,7 +12,7 @@ export class AppController {
   ) {}
 
   @Get()
-  getHello(): string {
+  getHello(): { Endpoint: string; Method: string; Description: string }[] {
     return this.appService.getHello();
   }
 
