@@ -17,15 +17,7 @@ export class Product implements Omit<IProduct, "_id"> {
   @Prop({ required: true })
   tags!: string[];
 
-  @Prop({
-    type: {
-      active: Boolean,
-      price: Number,
-      start: Number,
-      end: Number,
-    },
-    required: true,
-  })
+  @Prop({ type: Object, required: true })
   discount!: {
     active: boolean;
     price?: number | undefined;

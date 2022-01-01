@@ -17,8 +17,16 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get()
-  async getProducts(@Query("tag") tag: string): Promise<IProduct[]> {
-    const products = await this.productsService.getProducts({ tag });
+  async getProducts(
+    @Query("tag") tag: string,
+    @Query("price") price: string,
+    @Query("discount") discount: string,
+  ): Promise<IProduct[]> {
+    const products = await this.productsService.getProducts({
+      tag,
+      price,
+      discount,
+    });
     return products;
   }
 
