@@ -1,0 +1,29 @@
+{
+    "name": "api-v2",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "license": "MIT",
+    "author": "Sifatul <mdsifatulislam.rabbi@gmail.com> (https://sifatulrabbi.github.io)",
+    "main": "./dist/main.js",
+    "scripts": {
+        "start": "NODE_ENV=production node ./dist/main.js",
+        "start:dev": "nodemon ./src/main.ts",
+        "build": "rm -rf ./dist && tsc"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.2",
+        "mongoose": "^6.1.6"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.13",
+        "@types/morgan": "^1.9.3",
+        "@types/node": "^17.0.8",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.15",
+        "ts-node": "^10.4.0"
+    }
+}

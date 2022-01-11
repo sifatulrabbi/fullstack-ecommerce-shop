@@ -1,0 +1,41 @@
+Products:
+  _id: string
+  name: string
+  summary: string
+  description: string
+  price: number
+  discount:
+    active: boolean
+    amount: boolean
+    end: date in number format
+
+Users:
+  _id: string
+  username: string
+  password: string
+  profile:
+    mobile: number
+    currency: USD | EUR | BDT
+    address:
+      country: string
+      province: string
+      city: string
+      area: string
+      street: string
+      zip_code: number
+
+Carts:
+  _id: string
+  user_id: id of the user
+  products: string[] # array of added products id
+  address: # address of the user
+    country: string
+    state: string
+    city: string
+    area: string
+    street: string
+    zip_code: number
+  total:
+    total_price: number
+    delivery_charge: number
+    cart_total: number

@@ -8,6 +8,7 @@
   "scripts": {
     "start": "npm run start:server && npm run start:web",
     "start:server": "npm run start:dev --workspace api",
+    "start:server-v2": "npm run start:dev --workspace api-v2",
     "start:web": "npm run start:dev --workspace web"
   },
   "workspaces": {
