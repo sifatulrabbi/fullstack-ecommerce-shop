@@ -1,0 +1,16 @@
+import {Document} from "mongoose";
+import {IAddress} from "./address";
+
+export interface ICart {
+    _id?: string;
+    user_id: string;
+    products: string[];
+    address: IAddress;
+    total: {
+        total_price: number;
+        delivery_charge: number;
+        cart_total: number;
+    };
+}
+
+export type ICartDoc = ICart & Document;

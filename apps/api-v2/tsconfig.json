@@ -6,8 +6,7 @@
         "outDir": "./dist",
         "baseUrl": "./",
         "esModuleInterop": false,
-        "moduleResolution": "node",
-        "typeRoots": ["./node_modules/@types", "./src/typings"]
+        "moduleResolution": "node"
     },
-    "include": ["src/*.ts", "src/**/*.ts, src/typings/**.d.ts"]
+    "include": ["src/*.ts", "src/**/*.ts"]
 }
