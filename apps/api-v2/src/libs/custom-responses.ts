@@ -63,4 +63,12 @@ export class CustomResponse {
     ) {
         new CustomResponse(res, 404, message, null, error);
     }
+
+    static notAcceptable(
+        res: Response,
+        message: string = "Not acceptable",
+        error: any | null
+    ) {
+        new CustomResponse(res, 406, message, null, error);
+    }
 }
