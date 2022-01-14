@@ -7,11 +7,7 @@ const productsSchema = new mongoose.Schema<IProduct>(
         summary: {type: String, required: true, maxlength: 200},
         description: {type: String, required: true},
         price: {type: Number, required: true},
-        discount: {
-            active: {type: Boolean, required: true},
-            amount: {type: Number},
-            end: {type: Number},
-        },
+        tags: {type: [String], required: true},
     },
     {
         timestamps: true,

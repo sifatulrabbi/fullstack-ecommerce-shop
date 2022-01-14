@@ -1,23 +1,29 @@
 import {Router, Request, Response} from "express";
 import {CustomResponse} from "../../libs";
-import {convertUserDataMiddleware} from "../../middlewares";
-import {createUser, getUser, updateUser} from "../../services/users.service";
+import {
+    createUser,
+    getUser,
+    removeUser,
+    updateUser,
+} from "../../services/users.service";
+import {createUserValidator} from "../../validators";
 
-const usersRouter = Router();
+const usersController = Router();
 
-usersRouter.get("/:id", async (req: Request, res: Response) => {
+usersController.get("/:id", async (req: Request, res: Response) => {
     const user = await getUser(req.params.id);
 
     if (!user) {
         CustomResponse.notFound(res, "Not Found", "No user found with the id");
+        return;
     }
 
     CustomResponse.ok(res, "User found", [user]);
 });
 
-usersRouter.post(
+usersController.post(
     "/",
-    convertUserDataMiddleware,
+    createUserValidator,
     async (req: Request, res: Response) => {
         const user = await createUser(req.body);
 
@@ -27,14 +33,36 @@ usersRouter.post(
                 "Bad request",
                 "Unable to create user please try again"
             );
+            return;
         }
 
-        CustomResponse.ok(res, "Hello from user creation route", [user]);
+        CustomResponse.ok(res, "User created", [user]);
     }
 );
 
-usersRouter.put("/:id");
+usersController.put("/:id", async (req: Request, res: Response) => {
+    const user = await updateUser(req.params.id, req.body);
 
-usersRouter.delete("/:id");
+    if (!user) {
+        CustomResponse.notFound(
+            res,
+            "Not Found",
+            "No user found with the user id"
+        );
+        return;
+    }
 
-export {usersRouter};
+    CustomResponse.ok(res, "User updated", [user]);
+});
+
+usersController.delete("/:id", async (req: Request, res: Response) => {
+    const remove = await removeUser(req.params.id);
+
+    if (!remove) {
+        CustomResponse.notFound(res, "Not Found", "No user found with the id");
+    }
+
+    CustomResponse.ok(res, "User removed");
+});
+
+export {usersController};

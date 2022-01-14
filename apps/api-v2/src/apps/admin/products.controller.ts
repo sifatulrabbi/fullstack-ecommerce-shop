@@ -3,39 +3,35 @@ import {
     createProduct,
     updateProduct,
     removeProduct,
+    getProducts,
 } from "../../services/products.service";
 import {CustomResponse} from "../../libs";
+import {createProductValidator} from "../../validators";
 
-const productsRouter = Router();
+const productsController = Router();
 
-productsRouter.post("/", async (req: Request, res: Response) => {
-    const {name, summary, description, price, discount} = req.body;
-    const product = createProduct({
-        name,
-        summary,
-        description,
-        price,
-        discount,
-    });
-
-    CustomResponse.ok(res, "Success", [product]);
+productsController.get("/", async (req: Request, res: Response) => {
+    const products = await getProducts();
+    CustomResponse.ok(res, "Products found", products);
 });
 
-productsRouter.put("/:id", async (req: Request, res: Response) => {
-    const {name, summary, description, price, discount} = req.body;
-    const productId = req.params.id;
-    const product = await updateProduct(productId, {
-        name,
-        summary,
-        description,
-        price,
-        discount,
-    });
+productsController.post(
+    "/",
+    createProductValidator,
+    async (req: Request, res: Response) => {
+        const product = await createProduct(req.body);
 
-    if (!updateProduct) {
+        CustomResponse.ok(res, "Product created", [product]);
+    }
+);
+
+productsController.put("/:id", async (req: Request, res: Response) => {
+    const product = await updateProduct(req.params.id, req.body);
+
+    if (!product) {
         CustomResponse.notFound(
             res,
-            "Not found",
+            "Product not found",
             "No product found with the id"
         );
         return;
@@ -44,14 +40,13 @@ productsRouter.put("/:id", async (req: Request, res: Response) => {
     CustomResponse.ok(res, "Product updated", [product]);
 });
 
-productsRouter.delete("/:id", async (req: Request, res: Response) => {
-    const productId = req.params.id;
-    const message = await removeProduct(productId);
+productsController.delete("/:id", async (req: Request, res: Response) => {
+    const message = await removeProduct(req.params.id);
 
     if (!message) {
         CustomResponse.notFound(
             res,
-            "Not found",
+            "Product not found",
             "No product found with the id"
         );
     }
@@ -59,4 +54,4 @@ productsRouter.delete("/:id", async (req: Request, res: Response) => {
     CustomResponse.ok(res, "Product removed");
 });
 
-export {productsRouter};
+export {productsController};

@@ -12,7 +12,7 @@ export function mongoIdValidator(
         CustomResponse.notAcceptable(
             res,
             "Invalid id",
-            "Id has to be 12 or 24 character long"
+            "Id has to be 12 or 24 characters long"
         );
     }
 }

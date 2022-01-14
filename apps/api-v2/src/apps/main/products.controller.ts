@@ -2,14 +2,14 @@ import {Request, Response, Router} from "express";
 import {getProduct, getProducts} from "../../services/products.service";
 import {CustomResponse} from "../../libs";
 
-const productsRouter = Router();
+const productsController = Router();
 
-productsRouter.get("/", async (req: Request, res: Response) => {
+productsController.get("/", async (req: Request, res: Response) => {
     const products = await getProducts();
     CustomResponse.ok(res, "Success", products);
 });
 
-productsRouter.get("/:id", async (req: Request, res: Response) => {
+productsController.get("/:id", async (req: Request, res: Response) => {
     const productId = req.params.id;
     const product = await getProduct(productId);
 
@@ -25,4 +25,4 @@ productsRouter.get("/:id", async (req: Request, res: Response) => {
     CustomResponse.ok(res, "Success", [product]);
 });
 
-export {productsRouter};
+export {productsController};

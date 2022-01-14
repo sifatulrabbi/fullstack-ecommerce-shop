@@ -2,11 +2,8 @@ import {IProduct, IProductDoc} from "../interfaces";
 import {productsModel} from "../models";
 import {config} from "../configs";
 
-export async function getProducts(
-    tag?: string[],
-    discount?: boolean
-): Promise<IProductDoc[]> {
-    const products = await productsModel.find({});
+export async function getProducts(): Promise<IProductDoc[]> {
+    const products = await productsModel.find({}, "_id name summary price");
     return products;
 }
 

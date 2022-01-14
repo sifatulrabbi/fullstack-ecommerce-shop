@@ -6,11 +6,7 @@ export interface IProduct {
     summary: string;
     description: string;
     price: number;
-    discount: {
-        active: boolean;
-        amount: number;
-        end: number;
-    };
+    tags: string[];
 }
 
 export type IProductDoc = IProduct & Document;
