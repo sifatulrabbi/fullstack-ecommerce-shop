@@ -4,7 +4,12 @@ import {IAddress} from "./address";
 export interface ICart {
     _id?: string;
     user_id: string;
-    products: string[];
+    products: {
+        _id: string;
+        name: string;
+        price: number;
+        amount: number;
+    }[];
     address: IAddress;
     total: {
         total_price: number;

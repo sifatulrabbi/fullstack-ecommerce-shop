@@ -1,0 +1,8 @@
+Products:
+  get_products:
+    url: /api/v1/products?tag=tag_name&discount=boolean
+    method: GET
+
+  get_product:
+    url: /api/v1/products/:id
+    method: GET

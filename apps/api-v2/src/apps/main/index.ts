@@ -1,6 +1,7 @@
 import * as express from "express";
 import {productsController} from "./products.controller";
 import {usersController} from "./users.controller";
+import {cartsController} from "./carts.controller";
 import {mongoIdValidator} from "../../validators";
 
 const mainApp = express();
@@ -10,6 +11,7 @@ mainApp.use("/users/:id", mongoIdValidator);
 
 mainApp.use("/products", productsController);
 mainApp.use("/users", usersController);
+mainApp.use("/carts", cartsController);
 
 mainApp.get("/", (req, res) => {
     res.status(200).json({message: "Hello from main"});

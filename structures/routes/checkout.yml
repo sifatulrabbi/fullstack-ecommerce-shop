@@ -1,0 +1,8 @@
+BuyProduct:
+  checkout:
+    url: /api/v1/checkout
+    method: POST
+
+  payment:
+    url: /api/v1/payment
+    method: POST

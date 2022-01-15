@@ -1,0 +1,20 @@
+Users:
+  create_user:
+    url: /api/v1/users
+    method: POST
+
+  get_users:
+    url: /api/v1/users
+    method: GET
+
+  get_user:
+    url: /api/v1/users/:id
+    method: POST
+
+  update_user:
+    url: /api/v1/users/:id
+    method: PUT
+
+  remove_user:
+    url: /api/v1/users/:id
+    method: DELETE

@@ -1,0 +1,28 @@
+Admin:
+  create_product:
+    url: /api/v1/admin/products
+    method: POST
+
+  update_product:
+    url: /api/v1/admin/products/:id
+    method: PUT
+
+  remove_product:
+    url: /api/v1/admin/products/:id
+    method: DELETE
+
+  get_orders:
+    url: /api/v1/admin/orders
+    method: GET
+
+  get_order:
+    url: /api/v1/admin/orders/:id
+    method: GET
+
+  complete_order:
+    url: /api/v1/admin/orders/:id
+    method: POST
+
+  remove_order:
+    url: /api/v1/admin/orders/:id
+    method: DELETE

@@ -27,7 +27,7 @@ Users:
 Carts:
   _id: string
   user_id: id of the user
-  products: string[] # array of added products id
+  products: [{ _id: string, name: string, price: number, amount: number }]
   address: # address of the user
     country: string
     state: string

@@ -3,7 +3,17 @@ import {ICart} from "../interfaces/cart";
 
 const cartsSchema = new mongoose.Schema<ICart>({
     user_id: {type: String, required: true},
-    products: {type: [String], required: true},
+    products: {
+        type: [
+            {
+                _id: {type: String},
+                name: {type: String},
+                price: {type: Number},
+                amount: {type: Number},
+            },
+        ],
+        required: true,
+    },
     address: {
         country: {type: String, required: true},
         province: {type: String, required: true},

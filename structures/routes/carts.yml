@@ -1,0 +1,39 @@
+Cart:
+  create_cart:
+    url: /api/v1/cart
+    method: POST
+    body:
+      {
+        "user_id": "string",
+        "product":
+          {
+            "_id": "string",
+            "name": "string",
+            "price": "number",
+            "amount": "number",
+          },
+      }
+
+  get_cart:
+    url: /api/v1/cart/:id
+    method: GET
+
+  update_cart_product:
+    url: /api/v1/cart/:id/product
+    method: POST
+    body:
+      {
+        "_id": "string",
+        "name": "string",
+        "price": "number",
+        "amount": "number",
+      }
+
+  remove_cart_product:
+    url: /api/v1/cart/:id/product
+    method: DELETE
+
+  remove_cart:
+    url: /api/v1/cart/:id
+    method: DELETE
+    body: { "_id": "string" }
