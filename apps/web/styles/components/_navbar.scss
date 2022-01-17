@@ -11,6 +11,7 @@
   left: 0;
   right: 0;
   @include padding();
+  box-shadow: $shadow-700;
 
   &-menu {
     display: none;
@@ -23,6 +24,7 @@
 
     &.active {
       display: flex;
+      box-shadow: $shadow-color-dark 0px 20px 22px -2px;
     }
 
     @media screen and (min-width: $breakpoint) {
@@ -41,6 +43,7 @@
 
       a {
         transition: color 0.2s ease-in-out;
+        color: $font-color-primary;
 
         &:hover {
           color: $primary-main;
