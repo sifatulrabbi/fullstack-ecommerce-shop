@@ -1,0 +1,9 @@
+@mixin link {
+  font-size: inherit;
+  color: $primary-main;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

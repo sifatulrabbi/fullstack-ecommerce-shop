@@ -1,30 +1,16 @@
 @mixin btn-base {
   position: relative;
   z-index: 1;
-  transition: 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   cursor: pointer;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: $shadow-color-light;
-    content: "";
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.2s ease-in;
-  }
+  background-color: transparent;
 
   &:hover {
-    &::before {
-      opacity: 1;
-    }
+    transform: scale(0.95);
   }
 }
 
@@ -39,9 +25,9 @@
 }
 
 @mixin icon-button {
-  font-size: $font-size-body;
-  height: 35px;
-  width: 35px;
+  font-size: 1.3rem;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   @include btn-base();
 }

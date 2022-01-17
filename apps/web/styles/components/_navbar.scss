@@ -1,0 +1,66 @@
+.navbar {
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+  background-color: $background-light;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include padding();
+
+  &-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $background-light;
+
+    &.active {
+      display: flex;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+      display: flex;
+      position: initial;
+      flex-direction: row;
+      background-color: transparent;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+
+      a {
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: $primary-main;
+        }
+      }
+    }
+  }
+
+  .user-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 1rem;
+  }
+
+  #menu-toggle-btn {
+    font-size: 2rem;
+
+    @media screen and (min-width: $breakpoint) {
+      display: none;
+    }
+  }
+}
