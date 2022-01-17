@@ -1,15 +1,11 @@
+// color palettes
 $primary-main: #1c77ff;
-$primary-dark: #1c2634;
+$background-dark: #1c1c1c;
+$background-light: #252525;
 
-$background-dark: #f9f9f9;
-$background-light: #fff;
-
-$font-color-primary: #222;
-$font-color-secondary: #555;
-
+// shadows
 $shadow-color-light: rgba(0, 0, 0, 0.15);
 $shadow-color-dark: rgba(0, 0, 0, 0.25);
-
 $shadow-100: $shadow-color-light 0px 0px 2px 0px;
 $shadow-400: $shadow-color-light 0px 2px 6px -1px;
 $shadow-500: $shadow-color-dark 2px 4px 12px -2px;
@@ -17,6 +13,9 @@ $shadow-700: $shadow-color-dark 2px 4px 22px -2px;
 
 $border-radius: 6px;
 
+// fonts
+$font-color-primary: #fff;
+$font-color-secondary: #ccc;
 $font-size-body: 16px;
 $font-size-body2: 14px;
 $font-size-caption: 12px;

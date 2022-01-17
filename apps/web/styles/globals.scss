@@ -1,5 +1,5 @@
 @import "./theme";
-@import "./mixins";
+@import "./mixins/button.mixin";
 
 html,
 body {
@@ -34,4 +34,22 @@ li {
   font-family: inherit;
 }
 
-@import "./home.scss";
+.btn--primary,
+.icon-btn--primary {
+  @include button();
+  background-color: $primary-main;
+  color: $font-color-primary;
+}
+
+.btn--secondary {
+  @include button();
+  color: $primary-main;
+}
+
+.icon-btn--primary {
+  @include icon-button();
+}
+
+.icon-btn--secondary {
+  @include icon-button();
+}

@@ -1,0 +1,47 @@
+@mixin btn-base {
+  position: relative;
+  z-index: 1;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $shadow-color-light;
+    content: "";
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.2s ease-in;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin button {
+  font-size: $font-size-body2;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border: 2px solid transparent;
+  border-color: $primary-main;
+  border-radius: $border-radius;
+  @include btn-base();
+}
+
+@mixin icon-button {
+  font-size: $font-size-body;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  @include btn-base();
+}
