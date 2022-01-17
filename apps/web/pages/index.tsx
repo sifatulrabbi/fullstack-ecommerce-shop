@@ -10,7 +10,9 @@ const Home: NextPage = () => {
       </Head>
       <main className="home-page">
         <Navbar />
-        <ProductCard />
+        {[1, 2, 3, 4].map((value: number) => (
+          <ProductCard key={value} alt={value % 2 === 0} />
+        ))}
       </main>
     </>
   );
