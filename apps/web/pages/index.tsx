@@ -1,6 +1,6 @@
 import type {NextPage} from "next";
 import Head from "next/head";
-import {Navbar, ProductCard} from "../components";
+import {Navbar, ProductsSection, Footer} from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -9,10 +9,7 @@ const Home: NextPage = () => {
         <title>Home | ECommerce shop</title>
       </Head>
       <main className="home-page">
-        <Navbar />
-        {[1, 2, 3, 4].map((value: number) => (
-          <ProductCard key={value} alt={value % 2 === 0} />
-        ))}
+        <ProductsSection />
       </main>
     </>
   );

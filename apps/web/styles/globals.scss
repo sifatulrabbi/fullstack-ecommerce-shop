@@ -71,6 +71,14 @@ li {
   text-transform: uppercase;
   font-weight: 900;
   display: block;
+  line-height: 1;
+}
+
+.products-section {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 2rem;
+  justify-content: center;
 }
 
 @import "./components";

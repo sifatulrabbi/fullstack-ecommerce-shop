@@ -1,32 +1,44 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
-import {product_1} from "../../assests";
 import {FaEye} from "react-icons/fa";
 
 interface Props {
+  product: {
+    img: any;
+    name: string;
+    summary: string;
+    price: number;
+    _id: string;
+  };
   alt?: boolean;
 }
 
-export const ProductCard: React.FC<Props> = ({alt}) => {
+export const ProductCard: React.FC<Props> = ({product, alt}) => {
   return (
     <div className={`product-card ${alt ? "alt" : "none"}`}>
-      <Image src={product_1} alt="null" className="product-card-img" />
+      <Image
+        src={product.img}
+        alt="null"
+        height={540}
+        width={720}
+        className="product-card-img"
+      />
       <div className="product-card-info">
-        <h3 className="product-card-title">Mac Book pro 2021</h3>
-        <p className="product-card-summary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-          corrupti aut mollitia magni reprehenderit tempora eligendi veritatis.
-          Velit ipsam, repudiandae iusto eius cum beatae!
-        </p>
-        <div style={{flexGrow: 1}}></div>
+        <h3 className="product-card-title">{product.name}</h3>
+        <p className="product-card-summary">{product.summary}</p>
+        <div style={{flexGrow: 1}} />
         <div className="product-card-bottom">
           <h4 className="product-card-price">
-            <span className="sign">$</span>2200
+            <span className="sign">$</span>
+            {product.price}
           </h4>
-          <button className="btn--primary">
-            <span className="btn-label">View</span>
-            <FaEye />
-          </button>
+          <Link href={`/products/${product._id}`} passHref={true}>
+            <button className="btn--primary">
+              <span className="btn-label">View</span>
+              <FaEye />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

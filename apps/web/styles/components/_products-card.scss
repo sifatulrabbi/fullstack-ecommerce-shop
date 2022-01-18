@@ -1,29 +1,21 @@
 .product-card {
+  min-width: 300px;
+  max-width: 400px;
   display: grid;
   grid-template-areas:
     "img"
     "info";
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: minmax(220px, 250px) auto;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   background-color: $background-light;
   border-radius: $border-radius;
   overflow: hidden;
-
-  @media screen and (min-width: $breakpoint) {
-    grid-template-areas: "img info";
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-
-    &.alt {
-      grid-template-areas: "info img";
-    }
-  }
+  box-shadow: $shadow-100;
 
   &-img {
     grid-area: img;
     object-fit: cover;
-    max-height: 320px;
   }
 
   &-info {
@@ -34,17 +26,24 @@
   }
 
   &-title {
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
     color: $font-color-primary;
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1;
   }
 
+  &-summary {
+    font-size: $font-size-body2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 3em;
+  }
+
   &-price {
     color: $font-color-primary;
     font-size: $font-size-h4;
-    font-weight: 700;
+    font-weight: 400;
 
     .sign {
       margin-right: 0.5rem;

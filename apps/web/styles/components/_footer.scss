@@ -1,0 +1,81 @@
+.footer {
+  margin-top: 15vh;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    grid-gap: 2rem;
+    @include padding();
+
+    padding: 1rem;
+
+    @media screen and (min-width: $breakpoint) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &-about,
+  &-site-map,
+  &-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+
+    &-list {
+      &-item {
+        font-size: $font-size-body2;
+        padding: 0.2rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @media screen and (min-width: $breakpoint) {
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: start;
+    }
+  }
+
+  &-title {
+    font-size: 1.2rem;
+    color: $font-color-primary;
+    margin-bottom: 1rem;
+  }
+
+  &-about {
+    &-description {
+      margin-top: 1rem;
+      font-size: $font-size-body2;
+    }
+
+    &-list {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      grid-gap: 1rem;
+    }
+  }
+
+  &-bottom {
+    font-size: $font-size-caption;
+    color: $font-color-primary;
+    background-color: $background-light;
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+
+    a {
+      color: $primary-main;
+    }
+  }
+}
