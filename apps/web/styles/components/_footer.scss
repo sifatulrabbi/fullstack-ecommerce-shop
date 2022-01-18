@@ -1,5 +1,5 @@
 .footer {
-  margin-top: 15vh;
+  margin-top: 20vh;
 
   .wrapper {
     display: grid;
@@ -67,6 +67,7 @@
   }
 
   &-bottom {
+    margin-top: 15vh;
     font-size: $font-size-caption;
     color: $font-color-primary;
     background-color: $background-light;

@@ -1,0 +1,58 @@
+.form {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $background-light;
+  border-radius: $border-radius;
+  grid-gap: 1.4rem;
+  box-shadow: $shadow-400;
+
+  &-group {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    padding: 0.4rem;
+    grid-gap: 0.4rem;
+
+    label {
+      color: $font-color-secondary;
+      width: 100%;
+    }
+
+    input {
+      color: $font-color-primary;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      font-size: $font-size-body2;
+      border-bottom: 2px solid $font-color-secondary;
+      padding: 0.3rem;
+
+      &:focus {
+        border-color: $primary-main;
+
+        &::placeholder {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    width: 100%;
+    max-width: 500px;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,14 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  @include padding();
+
+  &-title {
+    font-size: $font-size-h3;
+    color: $font-color-primary;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,9 +1,10 @@
 import React from "react";
 import {BsCartFill} from "react-icons/bs";
 import {FaBars, FaTimes, FaUser} from "react-icons/fa";
+import Link from "next/link";
 
 export const Navbar: React.FC = () => {
-  const [loggedIn, setLoggedIn] = React.useState<boolean>(true);
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
   const [showMenu, setShowMenu] = React.useState<boolean>(false);
 
   const toggleNavbarMenu = (e: any, val?: boolean): void => {
@@ -44,8 +45,12 @@ export const Navbar: React.FC = () => {
               </button>
             ) : (
               <>
-                <button className="btn--secondary">Sign Up</button>
-                <button className="btn--primary">Login</button>
+                <Link href="/sign-up" passHref={true}>
+                  <button className="btn--secondary">Sign Up</button>
+                </Link>
+                <Link href="/login" passHref={true}>
+                  <button className="btn--primary">Login</button>
+                </Link>
               </>
             )}
           </div>
