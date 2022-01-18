@@ -1,5 +1,5 @@
 import Document, {Html, Head, Main, NextScript} from "next/document";
-import {Navbar, Footer} from "../components";
+import {Footer} from "../components";
 
 class MyDocument extends Document {
   render() {
@@ -12,7 +12,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Navbar />
           <Main />
           <Footer />
           <NextScript />

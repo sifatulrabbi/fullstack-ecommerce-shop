@@ -1,6 +1,6 @@
 import type {NextPage} from "next";
 import Head from "next/head";
-import {Navbar, ProductsSection, Footer} from "../components";
+import {Navbar, ProductsSection} from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +8,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | ECommerce shop</title>
       </Head>
+      <Navbar />
       <main className="home-page">
         <ProductsSection />
       </main>
