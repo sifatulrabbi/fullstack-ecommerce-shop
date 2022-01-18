@@ -1,3 +1,4 @@
+// @next/next/no-html-link-for-pages
 import React from "react";
 import {BsCartFill} from "react-icons/bs";
 import {FaBars, FaTimes, FaUser} from "react-icons/fa";
