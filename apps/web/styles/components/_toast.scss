@@ -1,0 +1,39 @@
+.toast {
+  z-index: 2400;
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  max-width: 400px;
+  width: 90%;
+  padding: 1rem;
+  background-color: $background-light;
+  box-shadow: $shadow-400;
+  border-radius: $border-radius;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  &.error {
+    background-color: rgb(255, 68, 68);
+  }
+
+  &.ok {
+    background-color: green;
+  }
+
+  &.warn {
+    background-color: rgb(179, 119, 8);
+  }
+
+  &.show {
+    display: flex;
+  }
+
+  &-text {
+    font-size: $font-size-body2;
+    color: $font-color-primary;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}
