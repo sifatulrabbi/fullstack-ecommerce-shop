@@ -1,6 +1,12 @@
 import React from "react";
 import {BsCartFill} from "react-icons/bs";
-import {FaBars, FaTimes, FaUser} from "react-icons/fa";
+import {
+  FaBars,
+  FaSearch,
+  FaShoppingCart,
+  FaTimes,
+  FaUser,
+} from "react-icons/fa";
 import Link from "next/link";
 
 export const Navbar: React.FC = () => {
@@ -26,75 +32,70 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <a href="/">
-        <span className="logo">FS</span>
-      </a>
-      <div style={{flexGrow: 1}} />
-      <ul className={`navbar-menu ${showMenu ? "active" : "inactive"}`}>
+      <h1 className="logo">FS</h1>
+      <div style={{flexGrow: 1}}></div>
+
+      <ul className="navbar-menu">
+        <li className="navbar-menu-item">Home</li>
+
+        <li className="navbar-menu-item">About us</li>
+
         <li className="navbar-menu-item">
-          <Link href="/">Home</Link>
-        </li>
-        <li className="navbar-menu-item">
-          <Link href="/about">About</Link>
-        </li>
-        <li className="navbar-menu-item">
-          <div
-            className={`hover-menu ${showHoverMenu ? "active" : "inactive"}`}
-            onMouseMove={(e) => toggleHoverMenu(e, true)}
-            onMouseLeave={(e) => toggleHoverMenu(e, false)}
-          >
-            <button
-              className={`hover-menu-btn ${
-                showHoverMenu ? "active" : "inactive"
-              }`}
-            >
-              Categories
-            </button>
-            <ul
-              className={`hover-menu-list ${
-                showHoverMenu ? "active" : "inactive"
-              }`}
-            >
-              <li className="hover-menu-item">
-                <Link href="/categories/clothes">Clothes</Link>
-              </li>
-              <li className="hover-menu-item">
-                <Link href="/categories/technologies">Technologies</Link>
-              </li>
-              <li className="hover-menu-item">
-                <Link href="/categories/accessories">Accessories</Link>
-              </li>
+          <div className="hover-menu">
+            <button className="hover-menu-btn">Clothes</button>
+            <ul className="hover-menu-list">
+              <li className="hover-menu-list-item">Item 1</li>
+              <li className="hover-menu-list-item">Item 2</li>
+              <li className="hover-menu-list-item">Item 3</li>
+              <li className="hover-menu-list-item">Item 4</li>
             </ul>
           </div>
         </li>
+
         <li className="navbar-menu-item">
-          <div className="user-panel">
-            {loggedIn ? (
-              <button className="icon-btn--primary">
-                <FaUser />
-              </button>
-            ) : (
-              <>
-                <Link href="/sign-up" passHref={true}>
-                  <button className="btn--secondary">Sign Up</button>
-                </Link>
-                <Link href="/login" passHref={true}>
-                  <button className="btn--primary">Login</button>
-                </Link>
-              </>
-            )}
+          <div className="hover-menu">
+            <button className="hover-menu-btn">Technologies</button>
+            <ul className="hover-menu-list">
+              <li className="hover-menu-list-item">Item 1</li>
+              <li className="hover-menu-list-item">Item 2</li>
+              <li className="hover-menu-list-item">Item 3</li>
+              <li className="hover-menu-list-item">Item 4</li>
+            </ul>
+          </div>
+        </li>
+
+        <li className="navbar-menu-item">
+          <div className="hover-menu">
+            <button className="hover-menu-btn">Accessories</button>
+            <ul className="hover-menu-list">
+              <li className="hover-menu-list-item">Item 1</li>
+              <li className="hover-menu-list-item">Item 2</li>
+              <li className="hover-menu-list-item">Item 3</li>
+              <li className="hover-menu-list-item">Item 4</li>
+            </ul>
+          </div>
+        </li>
+
+        <li className="navbar-menu-item">
+          <div className="hover-menu">
+            <button className="hover-menu-btn">Beauty</button>
+            <ul className="hover-menu-list">
+              <li className="hover-menu-list-item">Item 1</li>
+              <li className="hover-menu-list-item">Item 2</li>
+              <li className="hover-menu-list-item">Item 3</li>
+              <li className="hover-menu-list-item">Item 4</li>
+            </ul>
           </div>
         </li>
       </ul>
-      <button
-        id="menu-toggle-btn"
-        className="icon-btn--secondary"
-        onClick={toggleNavbarMenu}
-      >
-        {showMenu ? <FaTimes /> : <FaBars />}
+      <button className="icon-btn--secondary">
+        <FaSearch />
       </button>
-      <button className="icon-btn--primary">
-        <BsCartFill />
+      <button className="icon-btn--secondary">
+        <FaShoppingCart />
+      </button>
+      <button className="icon-btn--secondary only-mobile">
+        <FaBars />
       </button>
     </nav>
   );

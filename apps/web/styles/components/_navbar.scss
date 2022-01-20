@@ -11,69 +11,9 @@
   left: 0;
   right: 0;
   @include padding();
-  box-shadow: $shadow-700;
+  box-shadow: $shadow-400;
 
-  &-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    justify-content: center;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: $background-light;
-    grid-gap: 2rem;
-    padding: 0;
-    align-items: flex-start;
-
-    &.active {
-      padding: 1rem;
-      display: flex;
-      box-shadow: $shadow-color-dark 0px 20px 22px -2px;
-    }
-
-    @media screen and (min-width: $breakpoint) {
-      display: flex;
-      position: initial;
-      flex-direction: row;
-      background-color: transparent;
-      align-items: center;
-    }
-
-    &-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: 100%;
-
-      a {
-        transition: color 0.2s ease-in-out;
-        color: $font-color-primary;
-        width: 100%;
-
-        &:hover {
-          color: $primary-main;
-        }
-      }
-
-      @media screen and (min-width: $breakpoint) {
-        width: max-content;
-      }
-    }
-  }
-
-  .user-panel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-gap: 1rem;
-  }
-
-  #menu-toggle-btn {
-    font-size: 2rem;
-
+  .only-mobile {
     @media screen and (min-width: $breakpoint) {
       display: none;
     }

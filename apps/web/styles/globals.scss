@@ -46,7 +46,7 @@ li {
 .btn--primary {
   @include button();
   background-color: $primary-main;
-  color: $font-color-primary;
+  color: #fff;
 }
 
 .btn--secondary {
@@ -57,7 +57,7 @@ li {
 .icon-btn--primary {
   @include icon-button();
   background-color: $primary-main;
-  color: $font-color-primary;
+  color: #fff;
 }
 
 .icon-btn--secondary {
