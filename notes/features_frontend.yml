@@ -1,0 +1,17 @@
+Navbar:
+  - Home: Goto home "/"
+  - About: Goto about "/about"
+  - Categories: Will have sub menus. Submenus will be shown on hover
+  - Login button: Goto "/login" (will be hidden if the user has been logged in)
+  - Sign up button: Goto "/sign-up" (will be hidden if the user has been logged in)
+  - Profile icon: Is on show when user has been signed in
+  - Cart button: Always visible even in the mobile mode
+
+Home_page:
+  - Navbar
+  - Main:
+      - featured_products: To show featured products (i.e. top rated most viewed etc)
+      - products_section: Products section to show products
+      - sides: keep some free spaces at the sides to show custom adds.
+          For mobile view these adds will be shown in between the products
+  - Footer
