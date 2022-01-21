@@ -31,7 +31,11 @@ export const HoverMenu: React.FC<Props> = ({name}) => {
     >
       <button className="hover-menu-btn" onClick={toggleHoverMenu}>
         <span>{name}</span>
-        <span className="arrow-icon inactive only-mobile">
+        <span
+          className={`arrow-icon inactive only-mobile ${
+            showMenu ? "rotate" : "normal"
+          }`}
+        >
           <FaCaretRight />
         </span>
       </button>

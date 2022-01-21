@@ -1,0 +1,13 @@
+_id: mongoose id auto generated
+name: string
+description: string
+price: number
+offer:
+  active: boolean
+  start_at: date
+  end_at: date
+  discount: number
+  free_delivery: boolean
+created_at: date
+updated_at: date
+tags: string[]

@@ -30,11 +30,12 @@
     flex-direction: column;
     position: fixed;
     top: 70px;
-    height: max-content;
+    bottom: 0;
     grid-gap: 2rem;
     background-color: $background-light;
     width: 100%;
     box-shadow: $shadow-400;
+    overflow-y: scroll;
     padding: 1rem;
 
     &.show {
